@@ -54,3 +54,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'rails_12factor', group: :production
 gem 'bootstrap-sass', '~> 3.3.6'
+group :development, :test do
+  gem 'rspec-rails', '~>3.5'
+  gem "factory_girl_rails", "~> 4.0"
+end
+gem 'firebase'
+gem 'devise'

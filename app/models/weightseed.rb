@@ -1,0 +1,2 @@
+class Weightseed < ApplicationRecord
+end

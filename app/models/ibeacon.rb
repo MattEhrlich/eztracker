@@ -1,0 +1,2 @@
+class Ibeacon < ApplicationRecord
+end
