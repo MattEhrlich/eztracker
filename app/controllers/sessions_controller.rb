@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
     def create
         #create a workout session
-        redirect_to (sessions_path(current_user), method :get)
+        redirect_to session_path(current_user)
     end
     def show
         
