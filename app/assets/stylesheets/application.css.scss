@@ -13,3 +13,28 @@
  *= require_tree .
  *= require_self
  */
+
+.footer-column {
+	margin-top: 70px;
+}
+
+.footer-column p {
+	color: #35536a;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.ez-footer-img {
+	margin-top: 60px;
+	width: 140px;
+}
+
+.footer .list-align {
+	list-style-type: none;
+	margin-left: -35px;
+}
+
+.footer .list-align li a {
+	color: #000;
+	font-size: 14px;
+}

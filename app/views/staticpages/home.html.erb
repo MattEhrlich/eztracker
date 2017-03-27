@@ -1,11 +1,9 @@
-<h1>Yo Pat & Matt bout' to blow this bitch up!</h1>
-
-
-<% if user_signed_in? %>
-    <% controller.redirect_to user_path(current_user) %>
-<% else %>
-
-<li><%= link_to 'Sign in', new_user_session_path %></li>
-<li><%= link_to 'Sign up', new_user_registration_path %></li>
-
-<% end %>
+<div class="hero-box">
+	<div class="hero-text text-center">
+		<h2>We're Utilizing iBeacons To Make Your Gym Smarter</h1>
+		<h3>Fitness. Made. Smarter.</h2>
+		<%= mail_to "seal.maisonet@gmail.com", "Contact Sales", subject: "I'm interested in making my gym/fitness center smart technology enabled", body: "Write your message here" %>
+	</div>
+</div>
+<br class="clr" /><br />
+<%= render "partials/footer" %>

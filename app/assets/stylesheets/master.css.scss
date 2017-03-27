@@ -1,2 +1,50 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+/*=========FONTS ADDED BELOW============*/
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|PT+Sans');
+/*=========FONTS ADDED ABOVE============*/
+
+.clr {
+	clear: both;
+}
+
+.navbar {
+	line-height: 70px;
+	background-color: #0e455f;
+	border: none;
+}
+
+.link-spacing {
+	margin-left: 40px;
+	font-size: 16px;
+	font-family: 'PT Sans', sans-serif;
+	color: #fff;
+}
+
+.link-spacing:hover {
+	text-decoration: none; 
+	color: #fff;
+	font-size: 17px;
+}
+
+.eztracker-icon {
+	width: 100px;
+	margin-left: 100px;
+	margin-top: 3px;
+}
+
+@media (min-width: 769px) {
+	
+	.link-spacing-1 {
+		margin-left: -180px;
+	}
+	
+}
+
+@media (max-width: 767px) {
+	
+	.eztracker-icon {
+		margin-left: 0;
+	}
+}
