@@ -1,1 +1,3 @@
-<h1>App Page</h1>
+<h1> App Menu</h1>
+<li><%= link_to 'Start Workout', trainings_path(current_user), method: :post %></li>
+<li><%= link_to 'Your Overview', workouts_path(current_user), method: :get %></li>
