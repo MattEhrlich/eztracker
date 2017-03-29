@@ -1,7 +1,7 @@
-class SessionsController < ApplicationController
+class TrainingsController < ApplicationController
     def create
         #create a workout session
-        redirect_to session_path(current_user)
+        redirect_to training_path(current_user)
     end
     def show
         
