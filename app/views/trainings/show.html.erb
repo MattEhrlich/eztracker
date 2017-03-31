@@ -5,5 +5,5 @@ Reps Counted:
     good_form?:
     Average time between intervals: </h2>
 
-<li> <%= link_to 'Back to Menu', app_path, method: :get %></li>
-<li> <%= link_to 'End Workout', training_path(current_user), method: :put %></li>
+<li> <%= link_to 'Back to Menu', dashboard_path(current_user.id), method: :get %></li>
+<li> <%= link_to 'End Workout', training_path(current_user.id), method: :put %></li>
