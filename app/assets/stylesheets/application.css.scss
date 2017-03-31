@@ -13,6 +13,34 @@
  *= require_tree .
  *= require_self
  */
+ 
+ form input {
+	 height: 40px;
+	 border-radius: 5px;
+	 width: 100%;
+	 outline: none;
+	 border: 1px solid #a7a7a7;
+ }
+ 
+ .sign-up-btn {
+	 background-color: #0e455f;
+	 border: none;
+	 color: #fff;
+	 box-shadow: 1px 3px 4px 1px #a7a7a7;
+ }
+ 
+ .sign-up-btn:hover {
+	 box-shadow: none;
+	 font-size: 15px;
+ }
+ 
+ input:focus {
+	 border: 3px solid #1ea017;
+ }
+ 
+ hr.short-hr {
+	 width: 300px;
+ }
 
 .footer-column {
 	margin-top: 70px;
