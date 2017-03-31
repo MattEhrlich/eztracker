@@ -59,4 +59,4 @@ group :development, :test do
   gem "factory_girl_rails", "~> 4.0"
 end
 gem 'firebase'
-gem 'devise'
+gem 'devise', '>= 3.2.4'
