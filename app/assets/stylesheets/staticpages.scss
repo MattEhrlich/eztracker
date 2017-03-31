@@ -2,6 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+body {
+	font-family: 'PT Sans', sans-serif;
+}
 
 .hero-box {
 	margin-top: -22px;
@@ -41,8 +44,62 @@
 	background-color: #679730;
 }
 
+.features-box {
+	margin-top: 40px;
+	font-family: 'PT Sans', sans-serif;
+	font-weight: bold;
+}
+
+.feature .fa {
+	font-size: 55px;
+}
+
+.fa-heartbeat {
+	color: red;
+	text-shadow: 1px 1px #000;
+}
+
+.fa-tachometer {
+	color: #14acb2;
+	text-shadow: 1px 1px #000;
+}
+
+.about-us h3 {
+	margin-top: 50px;
+	font-family: 'Kanit', sans-serif;
+	letter-spacing: 0.5px;
+	color: #0c6499;
+}
+
+.about-us p {
+	text-align: left;
+	margin-top: 20px;
+	font-size: 15px;
+}
+
+.card {
+	background-color: #fff;
+	padding: 20px;
+	margin-top: 40px;
+	box-shadow: 1px 4px 4px 1px #a7a7a7;
+	border-radius: 5px;
+	border-top: 8px solid #0c6499;
+}
+
+.card:hover h3 {
+	font-size: 30px;
+}
+
+.card:hover p {
+	font-size: 18px;
+}
+
+.card:hover hr {
+	border: 1px solid #0c6499;
+}
+
 /*===I-Phone 5 =====*/
-@media (max-width: 320px) {
+@media (max-width: 414px) {
 	.hero-text a {
 		padding: 20px 30px;
 	}
@@ -58,7 +115,7 @@
 	
 	.hero-text {
 	    position: absolute;
-	    top: 35%;
+	    top: 55%;
 	    left: 50%;
 	    width: 60%;
 	    transform: translate(-50%, -50%);
@@ -66,4 +123,16 @@
 	    font-family: 'PT Sans', sans-serif;
 	}
 
+}
+
+@media (min-width: 768px) {
+	.hero-text {
+	    position: absolute;
+	    top: 45%;
+	    left: 50%;
+	    width: 60%;
+	    transform: translate(-50%, -50%);
+	    color: white;
+	    font-family: 'PT Sans', sans-serif;
+	}
 }
