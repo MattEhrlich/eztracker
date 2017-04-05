@@ -98,6 +98,43 @@ body {
 	border: 1px solid #0c6499;
 }
 
+.menu-page {
+	margin-top: -20px;
+	background-color: #607D8B;
+	color: #fff;
+}
+
+.user-avatar-img {
+	width: 100px;
+	border-radius: 50px;
+}
+
+.menu-btn {
+	list-style-type: none;
+	margin-top: 25px;
+	background-color: #00BCD4;
+	width: 80%;
+	height: 40px;
+	font-size: 16px;
+	line-height: 40px;
+	border-radius: 5px;
+}
+
+.menu-btn:hover {
+	
+}
+
+ul a {
+	color: #fff;
+}
+
+h4.background-name {
+	background-color: #455A64;
+	padding: 5px;
+	margin: 0px -30px 0px -30px;
+	
+}
+
 /*===I-Phone 5 =====*/
 @media (max-width: 414px) {
 	.hero-text a {

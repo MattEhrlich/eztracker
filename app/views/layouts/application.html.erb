@@ -29,15 +29,14 @@
     <div class="collapse navbar-collapse text-center" id="bs-example-navbar-collapse-1">		  
 	   <% if ! user_signed_in? %>
       <%= link_to 'Product', product_path, class: "link-spacing link-spacing-1" %>
+      <%= link_to 'App', app_path, class: "link-spacing" %>
       <%= link_to 'About', about_path, class: "link-spacing" %>
-      <%= link_to 'Sales', sales_path, class: "link-spacing" %>
-      <%= link_to 'Sign Up', new_user_registration_path, class: "link-spacing" %>
-      <%= link_to 'Sign In', new_user_session_path, class: "link-spacing" %>
+      <%= link_to 'Create An Account', new_user_registration_path, class: "link-spacing" %>
+      <%= link_to 'Log In', new_user_session_path, class: "link-spacing" %>
       
 	   <% elsif user_signed_in? %>
       <%= link_to 'Product', product_path, class: "link-spacing link-spacing-1" %>
       <%= link_to 'About', about_path, class: "link-spacing" %>
-      <%= link_to 'Sales', sales_path, class: "link-spacing" %>
       <%= link_to 'Workout App', app_path, class: "link-spacing" %>
       <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "link-spacing" %>
 		   <ul class="nav navbar-nav navbar-right">

@@ -60,3 +60,8 @@ group :development, :test do
 end
 gem 'firebase'
 gem 'devise', '>= 3.2.4'
+gem 'simple_form'
+gem 'carrierwave', '~> 1.0'
+gem "figaro"
+gem "fog"
+gem "mini_magick"

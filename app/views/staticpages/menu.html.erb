@@ -1,0 +1,32 @@
+<div class="menu-page col-xs-12 text-center">
+	<div class="user-profile col-xs-12 center-block">
+		<% if current_user.userprofile.present? %>
+			<h4 class="background-name">Welcome, <%= @uprofile.full_name%></h4><br class="clr" />
+			<div class="profile-information col-xs-12">
+				<div class="col-xs-6">
+				<%= image_tag @uprofile.profile_image, class: "user-avatar-img" %> <br class="clr" />
+				</div>
+				<div class="col-xs-6 text-left">
+				<span>B-day: <%= @uprofile.age.strftime("%D") %></span><br class="clr" />
+				<span>Weight: <%= @uprofile.weight %> Lbs.</span>
+				</div><br class="clr" /><hr class="short-hr" />
+				<h4>Current Fitness Goal:</h4>
+				<p><%= @uprofile.fitness_goal %></p><br class="clr" />
+			</div>
+		<% else %>
+		 	NO USER PROFILE YET! <br class="clr" /><br />
+		 	<%= link_to "Create User Profile", new_userprofile_path, class: "btn btn-danger" %>
+		<% end %>
+	</div>
+	<hr class="short-hr" />
+   <div class="col-xs-12 menu-btns-div center-block text-center">
+	  	<ul class="center-block">
+		   <li class="menu-btn"><%= link_to 'Start Workout', trainings_path(current_user.id)%></li><br class="clr" />
+		   <li class="menu-btn"><%= link_to 'View / Edit Profile', edit_userprofile_path(current_user)%></li><br class="clr" />
+		   <li class="menu-btn"><%= link_to 'View Dashboard', dashboard_path(current_user)%></li><br class="clr" />
+		   <li class="menu-btn"><%= link_to 'Edit Goals', ""%></li><br class="clr" />
+		   <li class="menu-btn"><%= link_to 'Settings', ""%></li><br class="clr" />
+			<li class="menu-btn"><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
+	  	</ul>
+   </div>
+</div><!--end of menu-page -->

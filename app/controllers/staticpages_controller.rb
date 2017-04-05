@@ -9,12 +9,14 @@ class StaticpagesController < ApplicationController
 	def product
 	end
 	
-	def sales
+	def app
 	end
-	
 	
 	def about
 	end 
-		
 	
+	def menu
+		@uprofile = current_user.userprofile
+	end
+		
 end

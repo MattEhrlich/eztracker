@@ -1,0 +1,19 @@
+<div class="new-form col-xs-12 center-block">
+	<%= simple_form_for @uprofile do |f| %>
+	<%= f.input :profile_image, label: false %> <br class="clr" />
+	
+	<%= f.label "Tell Us Your Full Name" %>
+	<%= f.input :full_name, label: false %> <br class="clr" />
+	
+	<%= f.label "What's Your Current Weight?" %>
+	<%= f.input :weight, label: false, collection: 85..400 %> <br class="clr" />
+	
+	<%= f.label "When's Your Date Of Birth?" %>
+	<%= f.input :age, label: false, :start_year => Date.current.year - 15, :end_year => 1955 %> <br class="clr" />
+	
+	<%= f.label "What's Your Current Fitness Goal?" %>
+	<%= f.input :fitness_goal, label: false %> <br class="clr" />
+	<br class="clr" /><br />
+	<%= f.submit "Submit Profile", class: "btn btn-info" %>
+	<% end %>
+</div>
