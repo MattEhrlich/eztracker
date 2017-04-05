@@ -2,3 +2,20 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.navbar-fixed-bottom {
+	background-color: #0e455f;
+}
+
+.navbar-fixed-bottom i {
+	color: #fff;
+	font-size: 36px;
+	margin-top: 15px;
+}
+
+.navbar-fixed-bottom span.nav-link {
+	color: #fff;
+}
+
+.nav-item:hover {
+	background-color: #1c81af;
+}
