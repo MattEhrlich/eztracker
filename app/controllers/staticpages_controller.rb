@@ -18,5 +18,11 @@ class StaticpagesController < ApplicationController
 	def menu
 		@uprofile = current_user.userprofile
 	end
+	
+	def analytics
+	end
+	
+	def performance 
+	end
 		
 end

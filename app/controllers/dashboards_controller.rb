@@ -3,4 +3,10 @@ class DashboardsController < ApplicationController
 	
 	def show
 	end
+	
+	def analytics
+	end
+	
+	def performance 
+	end
 end

@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   get 'app', to: 'staticpages#app'
   get 'about', to: 'staticpages#about'
   get 'menu', to: 'staticpages#menu'
-
+  get 'performance', to: 'staticpages#performance'
+  get 'analytics', to: 'staticpages#analytics'
 end
