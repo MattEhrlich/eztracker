@@ -1,9 +1,80 @@
-<h1> Workout In Progress</h1>
+<div class="package-receiving">
+	<div id="finding-workout" class="text-center center-block">
+		<i id="workout-search" class="glyphicon glyphicon-search"></i>
+		<h3>Finding Workout . . .</h3>
+	</div>
 
-<h2> Exercise Name:
-Reps Counted:
-    good_form?:
-    Average time between intervals: </h2>
+	<div id="exercise-stats" class="center-block">
+		<%= image_tag "shoulder-muscles.jpg", id: "shoulder-musculature", class: "center-block" %>
+		
+		<p>Exercise Name:</p>
+		<span id="exercise-name">Shoulder Press</span>
+		<hr class="short-hr" />
+		
+		<p>Reps Counted:</p>
+		<span id="counter" class="center-block text-center"></span>
+		<hr class="short-hr" />
+		
+		<p>Form Accuracy:</p>
+		<i id="form-check" class="glyphicon glyphicon-ok-circle text-center center-block"></i>
+		<hr class="short-hr" />
+	
+		<span><%= link_to 'Back to Menu', menu_path, method: :get, id: "allow-end-workout1", class: "back-btn" %></span><br class="clr" /><br /><br />
+		<span><%= link_to 'End Workout', training_path(current_user.id), method: :put, id: "allow-end-workout2", class: "end-workout-btn" %></span>
 
-<li> <%= link_to 'Back to Menu', dashboard_path(current_user.id), method: :get %></li>
-<li> <%= link_to 'End Workout', training_path(current_user.id), method: :put %></li>
+	</div>
+</div>
+
+<script>
+	$("#finding-workout").show();
+	$("#exercise-stats").hide();
+	
+	$( "#finding-workout" ).ready(function() {
+  $( "#finding-workout" ).animate({
+    width: "62%",
+    opacity: 1,
+    marginLeft: "0.7in",
+    fontSize: "70px",
+    borderWidth: "2px"
+  }, 5400 );
+});
+	
+	setTimeout(function() { 
+		$("#finding-workout").hide()
+		$("#exercise-stats").show();
+		; }, 5500);
+		
+$("#exercise-name").hide();
+$("#shoulder-musculature").hide();
+$("#form-check").hide();
+$("#allow-end-workout1").hide();
+$("#allow-end-workout2").hide();
+
+setTimeout(function() { 
+		$("#exercise-name").show();
+		; }, 6500);
+		
+setTimeout(function() { 
+		$("#shoulder-musculature").show();
+		; }, 8000);
+		
+setTimeout(function() { 
+		$("#form-check").show();
+		; }, 26000);
+		
+setTimeout(function() { 
+		$("#allow-end-workout1").show();
+		$("#allow-end-workout2").show();
+		; }, 27000);
+		
+		var i = 0;
+		theLabel = document.getElementById("counter");
+		var interval = setInterval(function(){ 
+		if (i == 12) clearInterval(interval);
+		theLabel.innerHTML = i; 
+		i++;
+}, 
+2000);
+
+	
+</script>

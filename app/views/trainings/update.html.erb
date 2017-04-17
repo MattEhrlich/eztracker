@@ -1,3 +1,14 @@
-<h1> Today's Results </h1>
-
-<li> <%= link_to 'Back to Menu', dashboard_path(current_user.id), method: :get %></li>
+<div class="results-box">
+	<h1> Today's Results </h1>
+	<hr class="short-hr" />
+	
+	<p>Exercises Performed:</p>
+	<h3>Shoulder Press</h3>
+	<hr class="short-hr" />
+	
+	<p>Total Reps:</p>
+	<h3>12</h3>
+	<hr class="short-hr" />
+	
+	<%= link_to 'Back to Menu', menu_path, method: :get, class: "back-btn" %>
+</div>

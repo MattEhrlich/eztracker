@@ -21,10 +21,9 @@
 	<hr class="short-hr" />
    <div class="col-xs-12 menu-btns-div center-block text-center">
 	  	<ul class="center-block">
-		   <li class="menu-btn"><%= link_to 'Start Workout', trainings_path(current_user.id)%></li><br class="clr" />
+		   <li class="menu-btn"><%= link_to 'Start Workout', training_path(current_user.id)%></li><br class="clr" />
 		   <li class="menu-btn"><%= link_to 'View / Edit Profile', edit_userprofile_path(current_user)%></li><br class="clr" />
 		   <li class="menu-btn"><%= link_to 'View Dashboard', dashboard_path(current_user)%></li><br class="clr" />
-		   <li class="menu-btn"><%= link_to 'Edit Goals', ""%></li><br class="clr" />
 		   <li class="menu-btn"><%= link_to 'Settings', ""%></li><br class="clr" />
 			<li class="menu-btn"><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
 	  	</ul>
