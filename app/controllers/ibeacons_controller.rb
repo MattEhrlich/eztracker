@@ -6,7 +6,7 @@ class IbeaconsController < ApplicationController
 	end
 	
 	def create
-		@test = Ibeacon.create(x_motion:(params[:x_motion]))
+		@test = Ibeacon.create(beacon_params)
 		@test.save
 		redirect_to ibeacons_path
 	end
