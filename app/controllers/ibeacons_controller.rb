@@ -10,9 +10,9 @@ class IbeaconsController < ApplicationController
 	
 	def create
 		@info = Ibeacon.new 
-		@info.x_motion = beacon_params("x_motion")
-		@info.y_motion = beacon_params("y_motion")
-		@info.z_motion = beacon_params("z_motion")
+		@info.x_motion = beacon_params["x_motion"]
+		@info.y_motion = beacon_params["y_motion"]
+		@info.z_motion = beacon_params["z_motion"]
 		@info.save
 		
 		redirect_to ibeacons_path
