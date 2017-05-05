@@ -6,9 +6,16 @@ class IbeaconsController < ApplicationController
 		render json: @var
 	end
 	
+	def new
+	end
+	
 	def create
-		@test = Ibeacon.create(params[:x_motion])
-		@test.save
+		@info = Ibeacon.new 
+		@info.x_motion = beacon_params("x_motion")
+		@info.y_motion = beacon_params("y_motion")
+		@info.z_motion = beacon_params("z_motion")
+		@info.save
+		
 		redirect_to ibeacons_path
 	end
 	
