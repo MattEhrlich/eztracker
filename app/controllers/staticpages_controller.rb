@@ -25,9 +25,4 @@ class StaticpagesController < ApplicationController
 	def performance 
 	end
 		
-	def test_api
-		@data = Ibeacon.all
-		render json: Ibeacon.all
-	end	
-		
 end

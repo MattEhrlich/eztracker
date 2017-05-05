@@ -1,0 +1,22 @@
+<h3>Accept Swift Data Below</h3>
+
+<% @data.each do |data| %>
+	<div>
+		<%= data.x_motion %>
+		<%= data.y_motion %>
+		<%= data.z_motion %>
+	</div>
+<% end %>
+
+<br class="clr" /><br /><br />
+<div>
+	
+ <% if @var.present? %>
+	<% @var.each do |api| %>
+		<%= api.title %>
+		<%= api.x_motion %>
+		<%= api.y_motion %>
+		<%= api.z_motion %>
+	<% end %>
+<% end %>
+</div>
