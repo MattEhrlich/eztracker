@@ -26,6 +26,7 @@ class StaticpagesController < ApplicationController
 	end
 		
 	def test_api
+		@data = Ibeacon.all
 	end	
 		
 end

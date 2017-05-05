@@ -1,1 +1,10 @@
 <h3>Accept Swift Data Below</h3>
+
+<% @data.each do |data| %>
+	<div>
+		<%= data.x_motion %>
+		<%= data.y_motion %>
+		<%= data.z_motion %>
+	</div>
+	<br class="clr" /><br /><br />
+<% end %>
