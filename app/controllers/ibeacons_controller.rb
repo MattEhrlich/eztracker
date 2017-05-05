@@ -7,7 +7,8 @@ class IbeaconsController < ApplicationController
 	
 	def create
 		@var = JSON.parse(params[:x_motion])
-		puts(params[:x_motion])
+		p "========================================================="
+		p(params[:x_motion])
 		if @var.present?
 			@test = Ibeacon.create(x_motion: (params[:x_motion]))
 			@test.save
