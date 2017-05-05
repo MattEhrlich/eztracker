@@ -2,8 +2,7 @@ class IbeaconsController < ApplicationController
 	skip_before_filter  :verify_authenticity_token
 	
 	def index 
-		@var = JSON.parse(params[:x_motion])
-		render json: @var
+		@data = Ibeacon.all
 	end
 	
 	def new
