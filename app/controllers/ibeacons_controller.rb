@@ -6,7 +6,7 @@ class IbeaconsController < ApplicationController
 	end
 	
 	def create
-		@test = Ibeacon.create(beacon_params)
+		@test = Ibeacon.create(params[beacon_params])
 		@test.save
 		redirect_to ibeacons_path
 	end
