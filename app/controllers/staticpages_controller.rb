@@ -27,6 +27,7 @@ class StaticpagesController < ApplicationController
 		
 	def test_api
 		@data = Ibeacon.all
+		render json: Ibeacon.all
 	end	
 		
 end
