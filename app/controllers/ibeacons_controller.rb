@@ -6,11 +6,12 @@ class IbeaconsController < ApplicationController
 	end
 	
 	def create
-		@var = JSON.parse(params[:title]) if @var.present?
-		
-		@test = Ibeacon.create(x_motion: (params[:x_motion]))
-		@test.save
-		redirect_to ibeacons_path
+		@var = JSON.parse(params[:x_motion])
+		if @var.present?
+			@test = Ibeacon.create(x_motion: (params[:x_motion]))
+			@test.save
+			redirect_to ibeacons_path
+		end
 	end
 	
 end
