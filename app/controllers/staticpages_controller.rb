@@ -25,4 +25,7 @@ class StaticpagesController < ApplicationController
 	def performance 
 	end
 		
+	def test_api
+	end	
+		
 end

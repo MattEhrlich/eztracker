@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
  	
   devise_for :users
- 	root 'staticpages#home'
+ 	root 'staticpages#test_api'
   resources :workouts, only: [:index]
   resources :exercises, only: []
   resources :trainings, only: [:update, :show, :create]
