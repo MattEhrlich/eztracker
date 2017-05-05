@@ -11,4 +11,10 @@ class IbeaconsController < ApplicationController
 		redirect_to ibeacons_path
 	end
 	
+	
+	private
+	
+	def beacon_params
+		params.require(:ibeacon).permit(:x_motion, :y_motion, :z_motion)
+	end 
 end
