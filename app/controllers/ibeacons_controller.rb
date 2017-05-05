@@ -6,4 +6,7 @@ class IbeaconsController < ApplicationController
 		puts @var
 	end
 	
+	def create
+	end
+	
 end
