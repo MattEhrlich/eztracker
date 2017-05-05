@@ -2,7 +2,7 @@ class IbeaconsController < ApplicationController
 	skip_before_filter  :verify_authenticity_token
 	
 	def index 
-		@data = Ibeacon.all
+		render json: Ibeacon.all
 	end
 	
 	def create
