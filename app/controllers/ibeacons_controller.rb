@@ -3,6 +3,8 @@ class IbeaconsController < ApplicationController
 	
 	def index 
 		@data = Ibeacon.all
+		
+		
 	end
 	
 	def new
