@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(version: 20170405212851) do
     t.string   "x_motion"
     t.string   "y_motion"
     t.string   "z_motion"
-    t.integer  "ibeacon_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
