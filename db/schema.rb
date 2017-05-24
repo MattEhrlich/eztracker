@@ -25,9 +25,9 @@ ActiveRecord::Schema.define(version: 20170405212851) do
   end
 
   create_table "ibeacons", force: :cascade do |t|
-    t.float    "x_motion"
-    t.float    "y_motion"
-    t.float    "z_motion"
+    t.string   "x_motion"
+    t.string   "y_motion"
+    t.string   "z_motion"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
