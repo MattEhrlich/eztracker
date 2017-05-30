@@ -163,17 +163,19 @@ class Algorithm
     end
 
     def self.nonlinear_logistic_regression_tester(choices ,data, pol, pol2, lengths_of_data)
-        results = data[0..lengths_of_data[0]]
+        results = data[0..(lengths_of_data[0] -1) ]
         guesses = []
         lead_guess = -1
         lead_prob = 0
         p N[*data].shape
-        x = Algorithm.meshing(data[(lengths_of_data[0] + 1)..(data.length-1)],pol2)
+        x = Algorithm.meshing(data[(lengths_of_data[0])..(data.length-1)],pol2)
         matrix_x = N[*x]
         hess = Algorithm.hessian(matrix_x)
         m = x.length
         data_placement = 0
+        p lengths_of_data
         (0..(choices.length - 1)).each do |pos|
+            p data_placement
             matrix_y = N[Algorithm.y_sort(m,data_placement,data_placement + lengths_of_data[pos + 1])].transpose
             matrix_theta = N.zeros([matrix_x.cols,1])
             data_placement += lengths_of_data[pos + 1]
@@ -210,7 +212,6 @@ class Algorithm
             guesses = guesses + [z.mean]
         end
         p guesses
-
         return lead_guess
 
     end

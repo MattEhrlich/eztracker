@@ -82,7 +82,7 @@ class Ibeacon < ApplicationRecord
         data = big_4 + big_1 + big_2 + big_3
 
         data = Algorithm.feature_matrix(data.transpose).transpose
-        logistic_guess = Algorithm.nonlinear_logistic_regression_tester(choices ,data,pol,pol2, [xx.length, x1.length, x2.length, x3.length])
+        logistic_guess = Algorithm.nonlinear_logistic_regression_tester(choices ,data,pol,pol2, [xx[0].length, x1[0].length, x2[0].length, x3[0].length])
         p "Exercise is a: " + choices[logistic_guess].to_s
         end_time = Time.now
         p "this took: " + (end_time - beginning_time).to_s + "  seconds!"
