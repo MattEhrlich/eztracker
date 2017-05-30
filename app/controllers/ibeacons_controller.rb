@@ -3,7 +3,6 @@ class IbeaconsController < ApplicationController
 	require './lib/algorithm.rb'
 	def index 
 		@data = Ibeacon.all
-		@result = Ibeacon.new.classify_exercise
 	end
 	
 	def new
