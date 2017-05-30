@@ -28,8 +28,10 @@ ActiveRecord::Schema.define(version: 20170405212851) do
     t.string   "x_motion"
     t.string   "y_motion"
     t.string   "z_motion"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "exercise_name"
+    t.integer  "reps_counted"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "userprofiles", force: :cascade do |t|
@@ -71,7 +73,6 @@ ActiveRecord::Schema.define(version: 20170405212851) do
   create_table "workouts", force: :cascade do |t|
     t.integer  "exercise_id"
     t.integer  "user_id"
-    t.integer  "reps_counted"
     t.string   "workout_id"
     t.integer  "weight"
     t.boolean  "good_performance?"
