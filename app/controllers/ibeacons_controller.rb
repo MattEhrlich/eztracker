@@ -1,10 +1,9 @@
 class IbeaconsController < ApplicationController
 	skip_before_filter  :verify_authenticity_token
-	
+	require './lib/algorithm.rb'
 	def index 
 		@data = Ibeacon.all
-		
-		
+		@result = Ibeacon.new.classify_exercise
 	end
 	
 	def new
@@ -16,7 +15,6 @@ class IbeaconsController < ApplicationController
  		@info.y_motion = beacon_params["y_motion"]
  		@info.z_motion = beacon_params["z_motion"]
  		@info.save
-		
 		redirect_to ibeacons_path
 	end
 	
