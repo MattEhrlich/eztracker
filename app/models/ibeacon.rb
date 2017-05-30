@@ -7,7 +7,7 @@ class Ibeacon < ApplicationRecord
     require './lib/algorithm.rb'
 
 
-    def classify_exercise
+    def classify_exercise(x,y,z)
         # RubyProf.start
         # p Algorithm.array_string_to_array("531.0,-31.0,-125.0,265.0,-281.0,375.0,250.0,-437.0,359.0,-171.0,-46.0,-156.0,-46.0,")
         
@@ -42,9 +42,9 @@ class Ibeacon < ApplicationRecord
         # zz = Algorithm.ranging([[593.0,968.0,1281.0,1406.0,812.0,1390.0,546.0,1187.0,1390.0,656.0,1171.0,1500.0,687.0]])
 
         # mysterydata1 (curl)
-        xx = Algorithm.ranging([[328.0,593.0,1328.0,-62.0,453.0,-453.0,-578.0,-46.0,265.0,187.0,796.0,968.0,265.0]])
-        yy = Algorithm.ranging([[-562.0,-468.0,-828.0,-265.0,-578.0,-343.0,-390.0,-156.0,-218.0,-250.0,-640.0,-687.0,-78.0]])
-        zz = Algorithm.ranging([[890.0,812.0,-31.0,125.0,-187.0,-2000.0,-2000.0,-1718.0,859.0,265.0,1031.0,1640.0,609.0]])
+        # xx = Algorithm.ranging([[328.0,593.0,1328.0,-62.0,453.0,-453.0,-578.0,-46.0,265.0,187.0,796.0,968.0,265.0]])
+        # yy = Algorithm.ranging([[-562.0,-468.0,-828.0,-265.0,-578.0,-343.0,-390.0,-156.0,-218.0,-250.0,-640.0,-687.0,-78.0]])
+        # zz = Algorithm.ranging([[890.0,812.0,-31.0,125.0,-187.0,-2000.0,-2000.0,-1718.0,859.0,265.0,1031.0,1640.0,609.0]])
 
         # mysterydata2 (press)
         # xx = Algorithm.ranging([[421.0,-593.0,-750.0,-1140.0,-1359.0,-1343.0,-640.0,-1140.0,-921.0,-718.0,-859.0,-796.0,-546.0]])
@@ -52,72 +52,56 @@ class Ibeacon < ApplicationRecord
         # zz = Algorithm.ranging([[890.0,-343.0,343.0,-187.0,703.0,296.0,-406.0,-156.0,-140.0,-437.0,-265.0,-218.0,-375.0]])
 
         #mysterydata
-        p "pizza port"
-        reps = Algorithm.rep_count(xx[0],yy[0],zz[0])
-        p reps
-        # xx = Algorithm.ranging([[ ]])
-        # yy = Algorithm.ranging([[ ]])
-        # zz = Algorithm.ranging([[ ]])
 
-
-
-        
+        xx = Algorithm.ranging([Algorithm.array_string_to_array(x)])
+        yy = Algorithm.ranging([Algorithm.array_string_to_array(y)])
+        zz = Algorithm.ranging([Algorithm.array_string_to_array(z)])
 
         choices = ["Curl","Shoulder Press","Row"]
-        correct = 0
-        possible = 1
 
         pol = 4
         pol2 = 4
 
         beginning_time = Time.now
-        (0..(possible - 1)).each do |rep|
-            p "========================"
-            # p rep if rep % 10 == 0
-            # actual = rand(choices.length)
-            # xy = Marshal.load(Marshal.dump(l1[actual]))
-            # normal = Rubystats::NormalDistribution.new(1.0, 0.6).rng(xy[0].length - 1)
-            # xy_real = [normal.zip(xy[0]).map{|n1, n2| n1 * n2}]
-            actual = 0
-            # fix data!!!!!!!!
-            big_1 = x1.transpose
-            big_1 = (big_1.transpose << y1[0]).transpose
-            big_1 = (big_1.transpose << z1[0]).transpose
+        p "========================"
+        big_1 = x1.transpose
+        big_1 = (big_1.transpose << y1[0]).transpose
+        big_1 = (big_1.transpose << z1[0]).transpose
 
-            big_2 = x2.transpose
-            big_2 = (big_2.transpose << y2[0]).transpose
-            big_2 = (big_2.transpose << z2[0]).transpose
+        big_2 = x2.transpose
+        big_2 = (big_2.transpose << y2[0]).transpose
+        big_2 = (big_2.transpose << z2[0]).transpose
 
-            big_3 = x3.transpose
-            big_3 = (big_3.transpose << y3[0]).transpose
-            big_3 = (big_3.transpose << z3[0]).transpose
+        big_3 = x3.transpose
+        big_3 = (big_3.transpose << y3[0]).transpose
+        big_3 = (big_3.transpose << z3[0]).transpose
 
-            big_4 = xx.transpose
-            big_4 = (big_4.transpose << yy[0]).transpose
-            big_4 = (big_4.transpose << zz[0]).transpose
-            data = big_4 + big_1 + big_2 + big_3
+        big_4 = xx.transpose
+        big_4 = (big_4.transpose << yy[0]).transpose
+        big_4 = (big_4.transpose << zz[0]).transpose
+        data = big_4 + big_1 + big_2 + big_3
 
-            data = Algorithm.feature_matrix(data.transpose).transpose
-            # TODP: figure out multivarble function... dot product a new 
-            # meshing func with some theta stuff
-            logistic_guess = Algorithm.nonlinear_logistic_regression_tester(choices ,data,pol,pol2)
-             # if logistic_guess == actual
-             #    correct += 1
-             #    p choices[logistic_guess].to_s
-             # else
-             #    p "WRONG: " + choices[logistic_guess].to_s
-             #    p "ACTUAL: " + choices[actual].to_s
-             # end
-             p "Exercise is a: " + choices[logistic_guess].to_s
-             return [choices[logistic_guess].to_s, reps]
-        end
-
+        data = Algorithm.feature_matrix(data.transpose).transpose
+        logistic_guess = Algorithm.nonlinear_logistic_regression_tester(choices ,data,pol,pol2, [xx.length, x1.length, x2.length, x3.length])
+        p "Exercise is a: " + choices[logistic_guess].to_s
         end_time = Time.now
-        # p correct.to_s +  "/" + possible.to_s
         p "this took: " + (end_time - beginning_time).to_s + "  seconds!"
         p "========================"
+        return choices[logistic_guess].to_s
         # result = RubyProf.stop
         # printer = RubyProf::CallStackPrinter.new(result)
         # File.open("tmp/profile_data2.html", 'w') { |file| printer.print(file) }
+    end
+
+    def rep_count(x,y,z)
+        x = Algorithm.array_string_to_array(x)
+        y = Algorithm.array_string_to_array(y)
+        z = Algorithm.array_string_to_array(z)
+        mags2 = [] 
+        (1..((x.length) - 1)).each do |i|
+            mags2 = mags2 + [Algorithm.angle(N[[x[i],y[i],z[i]]],N[[x[i-1],y[i-1],z[i-1]]])]
+        end 
+        p mags2
+        return Algorithm.minz(mags2)
     end
 end

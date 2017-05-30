@@ -42,10 +42,12 @@ class Algorithm
         return x
     end
 
-    def self.y_sort(x_length,choice_length,position)
+    def self.y_sort(x_length, data_placement,length_of_data)
         y = []
+        # lengths_of_data
+        # N[Algorithm.y_sort(m,choices.length,pos)].transpose
         (0..(x_length - 1)).each do |i|
-            if ((i /  (x_length / choice_length)) == position)
+            if ( i >= data_placement && i < length_of_data)
                 y = y + [1.0]
             else
                 y = y + [0.0]
@@ -160,33 +162,25 @@ class Algorithm
         return [new_l]
     end
 
-    def self.nonlinear_logistic_regression_tester(choices ,data, pol, pol2)
-        results = data[0..12]
+    def self.nonlinear_logistic_regression_tester(choices ,data, pol, pol2, lengths_of_data)
+        results = data[0..lengths_of_data[0]]
         guesses = []
         lead_guess = -1
         lead_prob = 0
         p N[*data].shape
-       
-
-        x = Algorithm.meshing(data[13..(data.length-1)],pol2)
+        x = Algorithm.meshing(data[(lengths_of_data[0] + 1)..(data.length-1)],pol2)
         matrix_x = N[*x]
         hess = Algorithm.hessian(matrix_x)
         m = x.length
+        data_placement = 0
         (0..(choices.length - 1)).each do |pos|
-            matrix_y = N[Algorithm.y_sort(m,choices.length,pos)].transpose
+            matrix_y = N[Algorithm.y_sort(m,data_placement,data_placement + lengths_of_data[pos + 1])].transpose
             matrix_theta = N.zeros([matrix_x.cols,1])
-
+            data_placement += lengths_of_data[pos + 1]
             i = 0
             i_max = 700
-
-            # p matrix_x.shape
-            # p matrix_y.shape
-            # p matrix_theta.shape
-
             r = -Algorithm.compute_cost_multi_logistic_df(matrix_theta,matrix_x,matrix_y)
-            # p "r"
             d = r
-            # p r
             alphastore = []
             while (i < i_max)
                 if i % 20 == 1
@@ -252,14 +246,6 @@ class Algorithm
         return counter
     end
 
-    def self.rep_count(x,y,z)
-        mags2 = [] 
-        (1..((x.length) - 1)).each do |i|
-            mags2 = mags2 + [Algorithm.angle(N[[x[i],y[i],z[i]]],N[[x[i-1],y[i-1],z[i-1]]])]
-        end 
-        p mags2
-        return Algorithm.minz(mags2)
-    end
 
     
     

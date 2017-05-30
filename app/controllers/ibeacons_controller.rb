@@ -14,6 +14,8 @@ class IbeaconsController < ApplicationController
 		@info.x_motion = beacon_params["x_motion"]
  		@info.y_motion = beacon_params["y_motion"]
  		@info.z_motion = beacon_params["z_motion"]
+ 		@info.exercise_name = @info.classify_exercise(beacon_params["x_motion"],beacon_params["y_motion"],beacon_params["z_motion"])
+ 		@info.reps_counted = @info.rep_count(beacon_params["x_motion"],beacon_params["y_motion"],beacon_params["z_motion"])
  		@info.save
 		redirect_to ibeacons_path
 	end
