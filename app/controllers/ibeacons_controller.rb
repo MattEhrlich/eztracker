@@ -9,6 +9,7 @@ class IbeaconsController < ApplicationController
  	# 	@info.exercise_name = @info.classify_exercise(@info.x_motion,@info.y_motion,@info.z_motion)
  	# 	@info.reps_counted = @info.rep_count(@info.x_motion,@info.y_motion,@info.z_motion)
  	# 	@info.save
+ 	
 
 		@data = Ibeacon.all
 	end
