@@ -3,7 +3,6 @@ class CreateWorkouts < ActiveRecord::Migration[5.0]
     create_table :workouts do |t|
       t.integer :exercise_id
       t.integer :user_id
-      t.integer :reps_counted
       t.string :workout_id
       t.integer :weight
       t.boolean :good_performance?
