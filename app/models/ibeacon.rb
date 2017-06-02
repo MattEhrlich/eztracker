@@ -96,9 +96,8 @@ class Ibeacon < ApplicationRecord
         z = Algorithm.array_string_to_array(z)
         mags2 = [] 
         (1..((x.length) - 1)).each do |i|
-            mags2 = mags2 + [Algorithm.angle(N[[x[i],y[i],z[i]]],N[[x[i-1],y[i-1],z[i-1]]])]
+            mags2 = mags2 + [N[[x[i],y[i],z[i]]].norm2()]
         end 
-        p mags2
-        return Algorithm.minz(mags2)
+        return  ((0.001343*mags2.standard_deviation*mags2.length) + 0.6546).round
     end
 end
