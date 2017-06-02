@@ -1,7 +1,4 @@
 require 'matrix.rb'
-require 'polynomial'
-require 'ruby-prof'
-require 'rubystats'
 require 'nmatrix'
 class Array
 

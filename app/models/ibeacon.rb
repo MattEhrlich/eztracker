@@ -1,8 +1,5 @@
 class Ibeacon < ApplicationRecord
     require 'matrix.rb'
-    require 'polynomial'
-    require 'ruby-prof'
-    require 'rubystats'
     require 'nmatrix'
     require './lib/algorithm.rb'
 
