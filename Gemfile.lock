@@ -63,7 +63,6 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
     devise (4.3.0)
-
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 4.1.0, < 5.2)
@@ -262,7 +261,7 @@ GEM
       backports
     pg (0.20.0)
     polynomial (0.7.1)
-    puma (3.8.2)
+    puma (3.9.0)
     rack (2.0.3)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -369,7 +368,6 @@ GEM
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
     xml-simple (1.1.5)
-    xmlrpc (0.3.0)
 
 PLATFORMS
   ruby
@@ -395,8 +393,6 @@ DEPENDENCIES
   rails (~> 5.0.1)
   rails_12factor
   rspec-rails (~> 3.5)
-  ruby-prof
-  rubystats
   sass-rails (~> 5.0)
   simple_calendar (~> 2.0)
   simple_form
