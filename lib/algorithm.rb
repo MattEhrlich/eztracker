@@ -83,7 +83,6 @@ class Algorithm
         j = (j1 - j2).to_a
 
         return j[0] / (1.0*m)
-
     end
     def self.compute_cost_multi_logistic_df(matrix_t,matrix_x,matrix_y) # input as a array
         predictions = N[(matrix_x.dot(matrix_t)).collect{ |e| Algorithm.num_reg(Algorithm.sigmoid_function(e)) }].transpose
@@ -164,15 +163,12 @@ class Algorithm
         guesses = []
         lead_guess = -1
         lead_prob = 0
-        p N[*data].shape
         x = Algorithm.meshing(data[(lengths_of_data[0])..(data.length-1)],pol2)
         matrix_x = N[*x]
         hess = Algorithm.hessian(matrix_x)
         m = x.length
         data_placement = 0
-        p lengths_of_data
         (0..(choices.length - 1)).each do |pos|
-            p data_placement
             matrix_y = N[Algorithm.y_sort(m,data_placement,data_placement + lengths_of_data[pos + 1])].transpose
             matrix_theta = N.zeros([matrix_x.cols,1])
             data_placement += lengths_of_data[pos + 1]
@@ -220,7 +216,6 @@ class Algorithm
     def self.array_string_to_array(string)
         arr = []
         curr_string = ""
-        p string
         string.each_char.with_index do |char, index|
             if char != ","
                 curr_string += char

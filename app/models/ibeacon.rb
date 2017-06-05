@@ -89,15 +89,4 @@ class Ibeacon < ApplicationRecord
         # printer = RubyProf::CallStackPrinter.new(result)
         # File.open("tmp/profile_data2.html", 'w') { |file| printer.print(file) }
     end
-
-    def rep_count(x,y,z)
-        x = Algorithm.array_string_to_array(x)
-        y = Algorithm.array_string_to_array(y)
-        z = Algorithm.array_string_to_array(z)
-        mags2 = [] 
-        (1..((x.length) - 1)).each do |i|
-            mags2 = mags2 + [N[[x[i],y[i],z[i]]].norm2()]
-        end 
-        return  ((0.001343*mags2.standard_deviation*mags2.length) + 0.6546).round
-    end
 end
