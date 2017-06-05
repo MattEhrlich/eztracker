@@ -30,9 +30,9 @@ class IbeaconsController < ApplicationController
         # @info.z_motion = "687.0,953.0,-531.0,-312.0,-203.0,-156.0,312.0,-281.0,-125.0,-265.0,78.0,-46.0,-203.0,-140.0,-156.0,-187.0,-156.0,-406.0,640.0,1031.0,"
 
 
- 		@info.exercise_name = @info.classify_exercise(@info.x_motion,@info.y_motion,@info.z_motion)
- 		@info.reps_counted = Rep.rep_predict(@info.x_motion,@info.y_motion,@info.z_motion)
- 		@info.save
+ 		# @info.exercise_name = @info.classify_exercise(@info.x_motion,@info.y_motion,@info.z_motion)
+ 		# @info.reps_counted = Rep.rep_predict(@info.x_motion,@info.y_motion,@info.z_motion)
+ 		# @info.save
 		@data = Ibeacon.all
 	end
 	
