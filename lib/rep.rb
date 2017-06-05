@@ -153,6 +153,24 @@ class Rep
         plus1 += [mag1.length]
         y += [[2.0]]
 
+        x1 = Algorithm.array_string_to_array("781.0,-109.0,671.0,31.0,93.0,406.0,-187.0,-171.0,15.0,")
+        y1 = Algorithm.array_string_to_array("-406.0,-187.0,-609.0,-359.0,-687.0,-671.0,-125.0,-718.0,-31.0,")
+        z1 = Algorithm.array_string_to_array("796.0,-281.0,859.0,906.0,1156.0,968.0,718.0,1203.0,1015.0,")
+        mag1 = Rep.mags(x1,y1,z1)
+        plus += [mag1.mean * mag1.standard_deviation / mag1.length]
+        plus1 += [mag1.length]
+        y += [[4.0]]
+  
+
+        x1 = Algorithm.array_string_to_array("656.0,-15.0,281.0,812.0,140.0,125.0,687.0,578.0,265.0,-62.0,-187.0,218.0,0.0,0.0,")
+        y1 = Algorithm.array_string_to_array("-671.0,-500.0,-468.0,-781.0,-765.0,-640.0,-593.0,-578.0,-546.0,-468.0,-125.0,-312.0,0.0,0.0,")
+        z1 = Algorithm.array_string_to_array("390.0,-1703.0,-812.0,1546.0,1625.0,1562.0,1578.0,1234.0,1281.0,1046.0,-1437.0,578.0,1000.0,1015.0,")
+        mag1 = Rep.mags(x1,y1,z1)
+        plus += [mag1.mean * mag1.standard_deviation / mag1.length]
+        plus1 += [mag1.length]
+        y += [[10.0]]
+
+
         # x1 = Algorithm.array_string_to_array(" ")
         # y1 = Algorithm.array_string_to_array(" ")
         # z1 = Algorithm.array_string_to_array(" ")
@@ -243,7 +261,7 @@ class Rep
         p xx
         p "======"
         # TODO: Need more data, get 20 points
-        ans = Rep.nonlinear_regression(plus,y,xx,3)[0]
+        ans = Rep.nonlinear_regression(plus,y,xx,2)[0]
         p "prediction: " + ans.to_s
         return ans.round
     end      

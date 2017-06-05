@@ -3,11 +3,12 @@ class IbeaconsController < ApplicationController
 	require './lib/algorithm.rb'
 	require './lib/rep.rb'
 	def index 
-		@info = Ibeacon.new 
+		# @info = Ibeacon.new 
 		# Curl (4)
 		# @info.x_motion = "781.0,-109.0,671.0,31.0,93.0,406.0,-187.0,-171.0,15.0,"
   #       @info.y_motion = "-406.0,-187.0,-609.0,-359.0,-687.0,-671.0,-125.0,-718.0,-31.0,"
   #       @info.z_motion = "796.0,-281.0,859.0,906.0,1156.0,968.0,718.0,1203.0,1015.0,"
+  
  		# Curl 10 ( a fast)
  		# @info.x_motion = "656.0,-15.0,281.0,812.0,140.0,125.0,687.0,578.0,265.0,-62.0,-187.0,218.0,0.0,0.0,"
    #      @info.y_motion = "-671.0,-500.0,-468.0,-781.0,-765.0,-640.0,-593.0,-578.0,-546.0,-468.0,-125.0,-312.0,0.0,0.0,"
