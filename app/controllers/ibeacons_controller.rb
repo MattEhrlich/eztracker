@@ -3,11 +3,11 @@ class IbeaconsController < ApplicationController
 	require './lib/algorithm.rb'
 	require './lib/rep.rb'
 	def index 
-		# @info = Ibeacon.new 
+		@info = Ibeacon.new 
 		# Curl (4)
-		# @info.x_motion = "-78.0,-750.0,484.0,359.0,343.0,-15.0,"
-  #       @info.y_motion = "-625.0,-140.0,-500.0,-234.0,-640.0,-15.0,"
-  #       @info.z_motion = "1984.0,1687.0,-2000.0,1421.0,1406.0,1031.0,"
+		@info.x_motion = "-78.0,-750.0,484.0,359.0,343.0,-15.0,"
+    @info.y_motion = "-625.0,-140.0,-500.0,-234.0,-640.0,-15.0,"
+    @info.z_motion = "1984.0,1687.0,-2000.0,1421.0,1406.0,1031.0,"
   
  		# Curl 10 ( a fast)
  		# @info.x_motion = "656.0,-15.0,281.0,812.0,140.0,125.0,687.0,578.0,265.0,-62.0,-187.0,218.0,0.0,0.0,"
@@ -34,10 +34,20 @@ class IbeaconsController < ApplicationController
         # @info.y_motion ="-453.0,-203.0,-218.0,-703.0,-421.0,15.0,-546.0,218.0,-234.0,-437.0,-31.0,-343.0,-343.0,46.0,-140.0,-328.0,-109.0,-437.0,-375.0,140.0,-296.0,-15.0,"
         # @info.z_motion ="1312.0,1281.0,812.0,1484.0,1218.0,312.0,1375.0,125.0,843.0,1250.0,484.0,1156.0,1375.0,1343.0,812.0,1187.0,484.0,1218.0,1156.0,15.0,875.0,1031.0,"
    
+        # Press 9
+        # @info.x_motion = "437.0,-515.0,-515.0,-515.0,-515.0,-515.0,-515.0,-515.0,-515.0,-515.0,-515.0,-515.0,-515.0,-515.0,-515.0,-515.0,-515.0,-515.0,-515.0,125.0,125.0,"
+        # @info.y_motion = "656.0,546.0,546.0,546.0,546.0,546.0,546.0,546.0,546.0,546.0,546.0,546.0,546.0,546.0,546.0,546.0,546.0,546.0,546.0,203.0,203.0,"
+        # @info.z_motion = "1234.0,-468.0,-468.0,-468.0,-468.0,-468.0,-468.0,-468.0,-468.0,-468.0,-468.0,-468.0,-468.0,-468.0,-468.0,-468.0,-468.0,-468.0,-468.0,1125.0,1125.0,"
 
- 		# @info.exercise_name = @info.classify_exercise(@info.x_motion,@info.y_motion,@info.z_motion)
- 		# @info.reps_counted = Rep.rep_predict(@info.x_motion,@info.y_motion,@info.z_motion)
- 		# @info.save
+
+        # row 5
+        # @info.x_motion = "718.0,796.0,453.0,453.0,1500.0,1015.0,203.0,1250.0,15.0,"
+        # @info.y_motion = "187.0,453.0,359.0,375.0,203.0,234.0,343.0,-62.0,-15.0,"
+        # @info.z_motion = "171.0,203.0,125.0,578.0,390.0,312.0,390.0,1015.0,1031.0,"
+
+ 		@info.exercise_name = @info.classify_exercise(@info.x_motion,@info.y_motion,@info.z_motion)
+ 		@info.reps_counted = Rep.rep_predict(@info.x_motion,@info.y_motion,@info.z_motion)
+ 		@info.save
 		@data = Ibeacon.all
 	end
 	

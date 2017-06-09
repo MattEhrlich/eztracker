@@ -21,6 +21,18 @@ class Rep
         return x.collect{|e| e ** p}
     end
 
+    def self.regularize(x)
+        matrix_x = N[*x]
+        final = []
+        (0..(matrix_x.cols - 1)).each do |col_i|
+            curr_arr = matrix_x.column(col_i).transpose.to_a 
+            p "*************************"
+            p curr_arr
+            final += [(curr_arr).collect{ |num| (num - curr_arr.mean) / ((curr_arr.max - curr_arr.mean)/ 1.633) }]
+        end
+        return final.transpose
+    end
+
     def self.meshing(x,pol)
         main_final = []
         base_possible = (0..(x[0].length - 1)).to_a
@@ -61,8 +73,8 @@ class Rep
         x = Rep.meshing(x,pol2)
         matrix_x = N[*x]
         matrix_y = N[*y]
-        # matrix_theta = N.zeros([matrix_x.cols,1])
-        matrix_theta = N[*[[-5.309575207882087], [0.0002531245579895821], [0.005180486264794318], [0.8012800842301145], [5.927152829519896e-09], [3.323754848002685e-07], [-2.160859974858134e-05], [-3.7795459125656428e-06], [-0.00016899041498311462], [-0.004027244478202384]]]
+        matrix_theta = N.zeros([matrix_x.cols,1])
+        # matrix_theta = N[*[[-5.309575207882087], [0.0002531245579895821], [0.005180486264794318], [0.8012800842301145], [5.927152829519896e-09], [3.323754848002685e-07], [-2.160859974858134e-05], [-3.7795459125656428e-06], [-0.00016899041498311462], [-0.004027244478202384]]]
         i = 0
         i_max = 601
         r = -Rep.compute_cost_multi_df(matrix_theta,matrix_x,matrix_y)
@@ -313,17 +325,35 @@ class Rep
         # plus1 += [mag1.length]
         # y += [[ ]]
 
-        old_plus = plus.collect{|ele| ele}
-        plus = plus.collect{|ele| ele }
-        # plus1 = [plus1]
-        plus = (plus.transpose << plus1).transpose
+
+
+
+        # old_plus = plus.collect{|ele| ele}
+        # plus = plus.collect{|ele| ele }
+        # plus = (plus.transpose << plus1).transpose
+        # x1 = Algorithm.array_string_to_array(arr_x)
+        # y1 = Algorithm.array_string_to_array(arr_y)
+        # z1 = Algorithm.array_string_to_array(arr_z)
+        # mag1 = Rep.mags(x1,y1,z1)
+        # xx = [[mag1.sum, mag1.standard_deviation, mag1.length]]
+
+
         x1 = Algorithm.array_string_to_array(arr_x)
         y1 = Algorithm.array_string_to_array(arr_y)
         z1 = Algorithm.array_string_to_array(arr_z)
-
-
         mag1 = Rep.mags(x1,y1,z1)
-        xx = [[mag1.sum, mag1.standard_deviation, mag1.length]]
+        plus += [[mag1.sum, mag1.standard_deviation]]
+
+
+        # plus = Rep.regularize(plus)
+
+
+        xx = plus.pop
+        plus = (plus.transpose << plus1).transpose
+        xx += [mag1.length]
+        xx = [xx]
+
+
         p "======"
         p "wierd datr"
         p "======"
@@ -332,6 +362,7 @@ class Rep
         p "time"
         p "======"
         p plus1
+        # p Rep.regularize([plus1].transpose).transpose[0]
         p "======"
         p "reps"
         p "======"
