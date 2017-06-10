@@ -3,7 +3,7 @@ class IbeaconsController < ApplicationController
 	require './lib/algorithm.rb'
 	require './lib/rep.rb'
 	def index 
-		# @info = Ibeacon.new 
+		@info = Ibeacon.new 
     # Row 12
     # @info.x_motion = "468.0,437.0,671.0,578.0,906.0,562.0,218.0,640.0,531.0,234.0,640.0,546.0,234.0,531.0,593.0,328.0,781.0,453.0,140.0,687.0,625.0,671.0,"
     # @info.y_motion = "-1015.0,-921.0,-1156.0,-593.0,-1171.0,-1046.0,-296.0,-1140.0,-1109.0,-328.0,-1156.0,-1156.0,-265.0,-968.0,-1046.0,-453.0,-1125.0,-859.0,-156.0,-875.0,-625.0,-718.0,"
@@ -30,9 +30,9 @@ class IbeaconsController < ApplicationController
     # @info.z_motion = "171.0,-218.0,-125.0,-125.0,-250.0,328.0,-125.0,-78.0,78.0,-218.0,15.0,-31.0,-296.0,31.0,-234.0,-265.0,-281.0,"
 
 
- 		# @info.exercise_name = @info.classify_exercise(@info.x_motion,@info.y_motion,@info.z_motion)
- 		# @info.reps_counted = Rep.rep_predict(@info.x_motion,@info.y_motion,@info.z_motion)
- 		# @info.save
+ 		@info.exercise_name = @info.classify_exercise(@info.x_motion,@info.y_motion,@info.z_motion)
+ 		@info.reps_counted = Rep.rep_predict(@info.x_motion,@info.y_motion,@info.z_motion)
+ 		@info.save
 		@data = Ibeacon.all
 	end
 	
