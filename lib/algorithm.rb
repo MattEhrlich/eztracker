@@ -154,7 +154,7 @@ class Algorithm
 
     def self.ranging(array)
         l = array[0]
-        new_l = l.collect{ |ele| ele / 1224.75}
+        new_l = l.collect{ |ele| ele / 1.0}
         return [new_l]
     end
 
@@ -218,6 +218,7 @@ class Algorithm
         arr = []
         curr_string = ""
         string.each_char.with_index do |char, index|
+            next if char == " "
             if char != ","
                 curr_string += char
             else

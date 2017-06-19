@@ -26,8 +26,6 @@ class Rep
         final = []
         (0..(matrix_x.cols - 1)).each do |col_i|
             curr_arr = matrix_x.column(col_i).transpose.to_a 
-            p "*************************"
-            p curr_arr
             final += [(curr_arr).collect{ |num| (num - curr_arr.mean) / ((curr_arr.max - curr_arr.mean)/ 1.633) }]
         end
         return final.transpose
@@ -85,9 +83,9 @@ class Rep
         hess = Rep.hessian(matrix_x)
         while (i < i_max)
                 if i % 200 == 0
-                    curr = Rep.compute_cost_multi_var(matrix_x.to_a,matrix_y.to_a,matrix_theta.to_a)
-                    z = (Matrix[*Algorithm.meshing(xx,pol2)] * Matrix[*matrix_theta.to_a] ).to_a.transpose[0]
-                    p "cost at iter" + i.to_s + " is :" + curr.to_s + " ====== " + z.to_s
+                    # curr = Rep.compute_cost_multi_var(matrix_x.to_a,matrix_y.to_a,matrix_theta.to_a)
+                    # z = (Matrix[*Algorithm.meshing(xx,pol2)] * Matrix[*matrix_theta.to_a] ).to_a.transpose[0]
+                    # p "cost at iter" + i.to_s + " is :" + curr.to_s + " ====== " + z.to_s
                     # TODO: check logistic_df, and make sure poly functions are actually doing their jobs!
                 end
             alpha = ((-r.transpose.dot(d)) /  (( d.transpose.dot(hess)).dot(d)))[0,0]
@@ -106,8 +104,6 @@ class Rep
         end
         # p matrix_theta.to_a.transpose[0]
         # p matrix_theta.to_a.transpose[0].mean
-        p "coffs:"
-        p matrix_theta.to_a
         z = (Matrix[*Algorithm.meshing(xx,pol2)] * Matrix[*matrix_theta.to_a] ).to_a.transpose[0]
         return z
     end
@@ -117,7 +113,7 @@ class Rep
         y1 = Algorithm.array_string_to_array("62.0,250.0,187.0,421.0,171.0,125.0,421.0,546.0,-453.0,-703.0,")
         z1 = Algorithm.array_string_to_array("-140.0,-15.0,-15.0,140.0,15.0,-250.0,46.0,156.0,-171.0,-281.0,")
         mag1 = Rep.mags(x1,y1,z1)
-        plus = [[mag1.sum, mag1.standard_deviation]]
+        plus = [[mag1.standard_deviation]]
         plus1 = [mag1.length]
         y = [[4.0]]
 
@@ -125,7 +121,7 @@ class Rep
         y1 = Algorithm.array_string_to_array("625.0,125.0,515.0,31.0,515.0,281.0,125.0,-125.0,687.0,-93.0,656.0,-390.0,-671.0,")
         z1 = Algorithm.array_string_to_array("78.0,-62.0,156.0,-187.0,15.0,-15.0,-93.0,-218.0,156.0,-296.0,265.0,-281.0,-343.0,")
         mag1 = Rep.mags(x1,y1,z1)
-        plus += [[mag1.sum, mag1.standard_deviation]]
+        plus += [[mag1.standard_deviation]]
         plus1 += [mag1.length]
         y += [[6.0]]
 
@@ -133,7 +129,7 @@ class Rep
         y1 = Algorithm.array_string_to_array("375.0,-390.0,-265.0,-312.0,187.0,-343.0,250.0,-609.0,687.0,-687.0,609.0,-750.0,78.0,-812.0,171.0,-781.0,-734.0,")
         z1 = Algorithm.array_string_to_array("-78.0,-234.0,-156.0,-187.0,-31.0,-234.0,-46.0,-265.0,281.0,-343.0,234.0,-218.0,46.0,-296.0,0.0,-281.0,-296.0,")
         mag1 = Rep.mags(x1,y1,z1)
-        plus += [[mag1.sum, mag1.standard_deviation]]
+        plus += [[mag1.standard_deviation]]
         plus1 += [mag1.length]
         y += [[8.0]]
 
@@ -141,15 +137,19 @@ class Rep
         y1 = Algorithm.array_string_to_array("437.0,-593.0,-328.0,-734.0,-93.0,-812.0,437.0,-953.0,312.0,-937.0,296.0,-828.0,421.0,-921.0,656.0,-781.0,484.0,-937.0,140.0,-796.0,-718.0,")
         z1 = Algorithm.array_string_to_array("-15.0,-250.0,-203.0,-359.0,-109.0,-187.0,171.0,-187.0,31.0,-218.0,-31.0,-203.0,78.0,-218.0,156.0,-218.0,125.0,-218.0,93.0,-140.0,-281.0,")
         mag1 = Rep.mags(x1,y1,z1)
-        plus += [[mag1.sum, mag1.standard_deviation]]
+        plus += [[mag1.standard_deviation]]
         plus1 += [mag1.length]
         y += [[10.0]]
+
+        # plus += [[0.0, 0.0, 0.0]]
+        # plus1 += [0.0]
+        # y += [[0.0]]
 
         x1 = Algorithm.array_string_to_array("750.0,937.0,1031.0,937.0,875.0,671.0,859.0,937.0,921.0,921.0,718.0,906.0,953.0,796.0,937.0,968.0,1062.0,906.0,1015.0,1125.0,1015.0,890.0,968.0,890.0,734.0,656.0,")
         y1 = Algorithm.array_string_to_array("203.0,296.0,-421.0,-296.0,-828.0,15.0,-437.0,-468.0,-718.0,-343.0,-875.0,-531.0,-562.0,140.0,-562.0,-265.0,-453.0,-250.0,-281.0,-359.0,-421.0,140.0,-500.0,203.0,-593.0,-750.0,")
         z1 = Algorithm.array_string_to_array("-296.0,-359.0,-453.0,-484.0,-437.0,-390.0,-390.0,-468.0,-375.0,-437.0,-421.0,-484.0,-359.0,-312.0,-312.0,-468.0,-343.0,-375.0,-312.0,-484.0,-390.0,-421.0,-453.0,-390.0,-406.0,-296.0,")
         mag1 = Rep.mags(x1,y1,z1)
-        plus += [[mag1.sum, mag1.standard_deviation]]
+        plus += [[mag1.standard_deviation]]
         plus1 += [mag1.length]
         y += [[12.0]]
 
@@ -157,7 +157,7 @@ class Rep
         y1 = Algorithm.array_string_to_array("-500.0,-343.0,-531.0,-203.0,734.0,-1031.0,328.0,-484.0,234.0,421.0,-1109.0,-93.0,-1015.0,-828.0,-421.0,-968.0,625.0,-1078.0,421.0,-718.0,-656.0,-1046.0,-671.0,-1000.0,-1015.0,468.0,-921.0,-921.0,-640.0,")
         z1 = Algorithm.array_string_to_array("-203.0,-125.0,-109.0,0.0,265.0,-281.0,218.0,-187.0,46.0,78.0,-250.0,0.0,-265.0,-343.0,-203.0,-312.0,234.0,-234.0,46.0,-203.0,-265.0,-234.0,-281.0,-281.0,-265.0,234.0,-203.0,-281.0,-296.0,")
         mag1 = Rep.mags(x1,y1,z1)
-        plus += [[mag1.sum, mag1.standard_deviation]]
+        plus += [[mag1.standard_deviation]]
         plus1 += [mag1.length]
         y += [[15.0]]
 
@@ -165,7 +165,7 @@ class Rep
         y1 = Algorithm.array_string_to_array("500.0,-859.0,390.0,-750.0,-187.0,-750.0,-93.0,-640.0,-187.0,-453.0,-890.0,-703.0,")
         z1 = Algorithm.array_string_to_array("156.0,-265.0,140.0,-234.0,-46.0,-218.0,15.0,-265.0,-46.0,-203.0,-312.0,-296.0,")
         mag1 = Rep.mags(x1,y1,z1)
-        plus += [[mag1.sum, mag1.standard_deviation]]
+        plus += [[mag1.standard_deviation]]
         plus1 += [mag1.length]
         y += [[5.0]]
 
@@ -173,15 +173,15 @@ class Rep
         y1 = Algorithm.array_string_to_array("-406.0,406.0,-750.0,515.0,-968.0,-62.0,-546.0,-781.0,")
         z1 = Algorithm.array_string_to_array("-250.0,125.0,-296.0,203.0,-187.0,-46.0,-359.0,-296.0,")
         mag1 = Rep.mags(x1,y1,z1)
-        plus += [[mag1.sum, mag1.standard_deviation]]
+        plus += [[mag1.standard_deviation]]
         plus1 += [mag1.length]
-        y += [[ 3.0]]
+        y += [[3.0]]
 
         x1 = Algorithm.array_string_to_array("546.0,593.0,234.0,640.0,625.0,593.0,781.0,593.0,796.0,750.0,531.0,796.0,484.0,703.0,375.0,859.0,687.0,468.0,687.0,")
         y1 = Algorithm.array_string_to_array("421.0,-921.0,796.0,-1062.0,-15.0,-828.0,-875.0,-890.0,-218.0,-281.0,-968.0,-640.0,-1046.0,109.0,-1031.0,-437.0,-890.0,-828.0,-687.0,")
         z1 = Algorithm.array_string_to_array("-203.0,-406.0,-203.0,-437.0,-328.0,-390.0,-421.0,-343.0,-437.0,-359.0,-437.0,-359.0,-375.0,-328.0,-312.0,-328.0,-390.0,-203.0,-234.0,")
         mag1 = Rep.mags(x1,y1,z1)
-        plus += [[mag1.sum, mag1.standard_deviation]]
+        plus += [[mag1.standard_deviation]]
         plus1 += [mag1.length]
         y += [[9.0]]
 
@@ -189,7 +189,7 @@ class Rep
         y1 = Algorithm.array_string_to_array("-859.0,-890.0,-437.0,-1328.0,500.0,-1265.0,796.0,-156.0,-1046.0,-1171.0,-1359.0,-1000.0,-1031.0,-1062.0,-640.0,-203.0,-1484.0,93.0,-984.0,-812.0,")
         z1 = Algorithm.array_string_to_array("-390.0,-46.0,-15.0,-187.0,171.0,-203.0,187.0,-78.0,-234.0,-250.0,-250.0,-218.0,-218.0,-203.0,-140.0,-93.0,-265.0,93.0,-234.0,-281.0,")
         mag1 = Rep.mags(x1,y1,z1)
-        plus += [[mag1.sum, mag1.standard_deviation]]
+        plus += [[mag1.standard_deviation]]
         plus1 += [mag1.length]
         y += [[11.0]]
 
@@ -203,14 +203,14 @@ class Rep
         # y1 = Algorithm.array_string_to_array(arr_y)
         # z1 = Algorithm.array_string_to_array(arr_z)
         # mag1 = Rep.mags(x1,y1,z1)
-        # xx = [[mag1.sum, mag1.standard_deviation, mag1.length]]
+        # xx = [[mag1.standard_deviation, mag1.length]]
 
 
         x1 = Algorithm.array_string_to_array(arr_x)
         y1 = Algorithm.array_string_to_array(arr_y)
         z1 = Algorithm.array_string_to_array(arr_z)
         mag1 = Rep.mags(x1,y1,z1)
-        plus += [[mag1.sum, mag1.standard_deviation]]
+        plus += [[mag1.standard_deviation]]
 
 
         # plus = Rep.regularize(plus)
@@ -222,21 +222,21 @@ class Rep
         xx = [xx]
 
 
-        p "======"
-        p "wierd datr"
-        p "======"
-        p plus
-        p "======"
-        p "time"
-        p "======"
-        p plus1
-        # p Rep.regularize([plus1].transpose).transpose[0]
-        p "======"
-        p "reps"
-        p "======"
-        p y.transpose
-        p "======"
-        p xx
+        # p "======"
+        # p "wierd datr"
+        # p "======"
+        # p plus
+        # p "======"
+        # p "time"
+        # p "======"
+        # p plus1
+        # # p Rep.regularize([plus1].transpose).transpose[0]
+        # p "======"
+        # p "reps"
+        # p "======"
+        # p y.transpose
+        # p "======"
+        # p xx
         p "======"
         # TODO: Need more data, get 20 points
         ans = Rep.nonlinear_regression(plus,y,xx, 2)[0]
