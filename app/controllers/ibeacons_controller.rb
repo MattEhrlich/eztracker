@@ -4,7 +4,7 @@ class IbeaconsController < ApplicationController
 	require './lib/rep.rb'
     require './lib/rotate.rb'
 	def index 
-		@info = Ibeacon.new 
+	   # @info = Ibeacon.new 
 
     # TODO: rotation and displacement optimization
 
@@ -115,10 +115,10 @@ class IbeaconsController < ApplicationController
 
 
 
- 		@info.exercise_name = @info.classify_exercise(@info.x_motion,@info.y_motion,@info.z_motion)
- 		@info.reps_counted = Rep.rep_predict(@info.x_motion,@info.y_motion,@info.z_motion)
- 		@info.save
-		@data = Ibeacon.all
+ 	# 	@info.exercise_name = @info.classify_exercise(@info.x_motion,@info.y_motion,@info.z_motion)
+ 	# 	@info.reps_counted = Rep.rep_predict(@info.x_motion,@info.y_motion,@info.z_motion)
+ 	# 	@info.save
+	   @data = Ibeacon.all
 	end
 	
 	def new
