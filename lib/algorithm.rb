@@ -129,7 +129,18 @@ class Algorithm
     def self.power_element(x,p)
         return x.collect{|e| e ** p}
     end
-
+    def self.regress(x, y, degree)
+        x_data = x.map { |xi| (0..degree).map { |pow| (xi**pow).to_f } }
+ 
+        mx = Matrix[*x_data]
+        my = Matrix.column_vector(y)
+ 
+        ((mx.t * mx).inv * mx.t * my).transpose.to_a[0]
+    end
+    def self.polyfunc(x,y,pol)
+         coffs = Algorithm.regress(x,y,pol)
+         return Polynomial.new(coffs)
+    end
     def self.meshing(x,pol)
         main_final = []
         base_possible = (0..(x[0].length - 1)).to_a
@@ -173,19 +184,17 @@ class Algorithm
             matrix_theta = N.zeros([matrix_x.cols,1])
             data_placement += lengths_of_data[pos + 1]
             i = 0
-            i_max = 201
+            i_max = 1001
             r = -Algorithm.compute_cost_multi_logistic_df(matrix_theta,matrix_x,matrix_y)
             d = r
-            alphastore = []
             while (i < i_max)
-                if i % 50 == 0
-                    curr = Algorithm.compute_cost_multi_logistic(matrix_x.to_a,matrix_y.to_a,matrix_theta.to_a)
-                    z = (Matrix[*Algorithm.meshing(results,pol2)] * Matrix[*matrix_theta.to_a] ).collect{ |e| Algorithm.num_reg(Algorithm.sigmoid_function(e)) }.to_a.transpose[0].mean
-                    p "cost at iter" + i.to_s + " is :" + curr.to_s + " ====== " + z.to_s
-                    # TODO: check logistic_df, and make sure poly functions are actually doing their jobs!
-                end
+                # if i % 100 == 0
+                #     curr = Algorithm.compute_cost_multi_logistic(matrix_x.to_a,matrix_y.to_a,matrix_theta.to_a)
+                #     z = (Matrix[*Algorithm.meshing(results,pol2)] * Matrix[*matrix_theta.to_a] ).collect{ |e| Algorithm.num_reg(Algorithm.sigmoid_function(e)) }.to_a.transpose[0].mean
+                #     p "cost at iter" + i.to_s + " is :" + curr.to_s + " ====== " + z.to_s
+                #     # TODO: check logistic_df, and make sure poly functions are actually doing their jobs!
+                # end
                 alpha = ((-r.transpose.dot(d)) /  (( d.transpose.dot(hess)).dot( d) ))[0,0]
-                alphastore = alphastore+[alpha]
                 # p "alpha: "
                 # p alpha
                 matrix_theta = matrix_theta + ( NMatrix.new( [d.rows, d.cols], alpha)*d )
