@@ -35,6 +35,7 @@ class Algorithm
         final = []
         (0..(x.length - 1)).each do |i|
             x[i] = Algorithm.feature_normalize(x[i])
+            # x[i] = Algorithm.ranging(x[i])
         end
         return x
     end
@@ -163,10 +164,8 @@ class Algorithm
         return main_final
     end
 
-    def self.ranging(array)
-        l = array[0]
-        new_l = l.collect{ |ele| ele / 1.0}
-        return [new_l]
+    def self.ranging(l)
+        return l.collect{ |ele| ele / 1224.74}
     end
 
     def self.nonlinear_logistic_regression_tester(choices ,data, pol, pol2, lengths_of_data)
