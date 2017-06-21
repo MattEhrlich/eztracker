@@ -34,8 +34,8 @@ class Algorithm
     def self.feature_matrix(x)
         final = []
         (0..(x.length - 1)).each do |i|
-            x[i] = Algorithm.feature_normalize(x[i])
-            # x[i] = Algorithm.ranging(x[i])
+            x[i] = Algorithm.ranging(x[i])
+            # Algorithm.feature_normalize(
         end
         return x
     end
@@ -165,7 +165,8 @@ class Algorithm
     end
 
     def self.ranging(l)
-        return l.collect{ |ele| ele / 1224.74}
+        return l.collect{ |ele| ele / (1224.74*1.25 )}
+        # 1224.74
     end
 
     def self.nonlinear_logistic_regression_tester(choices ,data, pol, pol2, lengths_of_data)
@@ -183,16 +184,15 @@ class Algorithm
             matrix_theta = N.zeros([matrix_x.cols,1])
             data_placement += lengths_of_data[pos + 1]
             i = 0
-            i_max = 1001
+            i_max = 701
             r = -Algorithm.compute_cost_multi_logistic_df(matrix_theta,matrix_x,matrix_y)
             d = r
             while (i < i_max)
-                # if i % 100 == 0
-                #     curr = Algorithm.compute_cost_multi_logistic(matrix_x.to_a,matrix_y.to_a,matrix_theta.to_a)
-                #     z = (Matrix[*Algorithm.meshing(results,pol2)] * Matrix[*matrix_theta.to_a] ).collect{ |e| Algorithm.num_reg(Algorithm.sigmoid_function(e)) }.to_a.transpose[0].mean
-                #     p "cost at iter" + i.to_s + " is :" + curr.to_s + " ====== " + z.to_s
-                #     # TODO: check logistic_df, and make sure poly functions are actually doing their jobs!
-                # end
+                if i % 350 == 0
+                    curr = Algorithm.compute_cost_multi_logistic(matrix_x.to_a,matrix_y.to_a,matrix_theta.to_a)
+                    z = (Matrix[*Algorithm.meshing(results,pol2)] * Matrix[*matrix_theta.to_a] ).collect{ |e| Algorithm.num_reg(Algorithm.sigmoid_function(e)) }.to_a.transpose[0].mean
+                    p "cost at iter" + i.to_s + " is :" + curr.to_s + " ====== " + z.to_s
+                end
                 alpha = ((-r.transpose.dot(d)) /  (( d.transpose.dot(hess)).dot( d) ))[0,0]
                 # p "alpha: "
                 # p alpha

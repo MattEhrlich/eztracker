@@ -90,7 +90,7 @@ class Rotate
         matrix_x = N[*x]
         matrix_theta = N[[0.0],[0.0]]
         i = 0
-        i_max = 181
+        i_max = 101
         r = -Rotate.computeCost_df_2d(matrix_theta.to_a.transpose[0],matrix_x.to_a)
         # p "r"
         d = r
@@ -99,14 +99,14 @@ class Rotate
         prev = 1000000000000000000
         prev_theta = [0.0]
         while (i < i_max)
-            if i % 10 == 0
-                # curr = Rotate.computeCost_2d(matrix_theta.to_a.transpose[0],matrix_x.to_a)
-                # p "cost at iter" + i.to_s + " is :" + curr.to_s
-            end
-            if prev - computeCost_2d(matrix_theta.to_a.transpose[0],matrix_x.to_a) < 0
+            # if i % 10 == 0
+            #     curr = Rotate.computeCost_2d(matrix_theta.to_a.transpose[0],matrix_x.to_a)
+            #     p "cost at iter" + i.to_s + " is :" + curr.to_s
+            # end
+            # if prev - computeCost_2d(matrix_theta.to_a.transpose[0],matrix_x.to_a) < 0
                 # p prev_theta
-                return prev_theta
-            end
+            #     return prev_theta
+            # end
             alpha = 0.5
             alphastore = alphastore+[alpha]
             # p "alpha: "
@@ -141,10 +141,10 @@ class Rotate
         prev = 1000000000000000000
         prev_theta = [0.0,0.0,0.0]
         while (i < i_max)
-            if i % 10 == 0
+            # if i % 10 == 0
                 # curr = Rotate.computeCost_3d(matrix_theta.to_a.transpose[0],matrix_x.to_a)
                 # p "cost at iter" + i.to_s + " is :" + curr.to_s
-            end
+            # end
             if prev - Rotate.computeCost_3d(matrix_theta.to_a.transpose[0],matrix_x.to_a).to_f < 0
                 # p prev_theta[0]
                 return prev_theta[0]
