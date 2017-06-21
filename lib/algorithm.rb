@@ -22,6 +22,9 @@ class Array
 
     end 
 class Algorithm
+    def self.trim(l)
+        return l[1..((l.length) -2)]
+    end
     def self.sigmoid_function(g)
         return 1.0/(1.0 + Math.exp(-g))
     end
@@ -34,8 +37,8 @@ class Algorithm
     def self.feature_matrix(x)
         final = []
         (0..(x.length - 1)).each do |i|
-            x[i] = Algorithm.ranging(x[i])
-            # Algorithm.feature_normalize(
+            # x[i] = Algorithm.ranging(x[i])
+            x[i] = Algorithm.feature_normalize(x[i]) 
         end
         return x
     end
@@ -165,7 +168,7 @@ class Algorithm
     end
 
     def self.ranging(l)
-        return l.collect{ |ele| ele / (1530.925)}
+        return l.collect{ |ele| ele * (2.5)}
         # 1224.74
     end
 
@@ -194,6 +197,7 @@ class Algorithm
                     p "cost at iter" + i.to_s + " is :" + curr.to_s + " ====== " + z.to_s
                 end
                 alpha = ((-r.transpose.dot(d)) /  (( d.transpose.dot(hess)).dot( d) ))[0,0]
+                # alpha = 0.01
                 # p "alpha: "
                 # p alpha
                 matrix_theta = matrix_theta + ( NMatrix.new( [d.rows, d.cols], alpha)*d )
