@@ -312,35 +312,7 @@ class Ibeacon < ApplicationRecord
         big_4 = [datr2[0],datr2[1],datr3.transpose[2]].transpose
 
 
-        func1 = Algorithm.polyfunc(big_1.transpose[1],big_1.transpose[2],pol)
-        func2 = Algorithm.polyfunc(big_2.transpose[1],big_2.transpose[2],pol)
-        func3 = Algorithm.polyfunc(big_3.transpose[1],big_3.transpose[2],pol)
-        func4 = Algorithm.polyfunc(big_4.transpose[1],big_4.transpose[2],pol)
-        func5 = Algorithm.polyfunc(big_1.transpose[1],big_1.transpose[0],pol)
-        func6 = Algorithm.polyfunc(big_2.transpose[1],big_2.transpose[0],pol)
-        func7 = Algorithm.polyfunc(big_3.transpose[1],big_3.transpose[0],pol)
-        func8 = Algorithm.polyfunc(big_4.transpose[1],big_4.transpose[0],pol)
-
-        big_1 = big_1.transpose
-        big_1[0] = big_1[1].collect{ |e| func5.substitute(e)}
-        big_1[2] = big_1[1].collect{ |e| func1.substitute(e)}
-        big_1 = big_1.transpose
-
-        big_2 = big_2.transpose
-        big_2[0] = big_2[1].collect{ |e| func6.substitute(e)}
-        big_2[2] = big_2[1].collect{ |e| func2.substitute(e)}
-        big_2 = big_2.transpose
-
-        big_3 = big_3.transpose
-        big_3[0] = big_3[1].collect{ |e| func7.substitute(e)}
-        big_3[2] = big_3[1].collect{ |e| func3.substitute(e)}
-        big_3 = big_3.transpose
-
-         
-        big_4 = big_4.transpose
-        big_4[0] = big_4[1].collect{ |e| func8.substitute(e)}
-        big_4[2] = big_4[1].collect{ |e| func4.substitute(e)}
-        big_4 = big_4.transpose
+        
 
         
         # data = big_4.transpose[1..2].transpose + big_1.transpose[1..2].transpose + big_2.transpose[1..2].transpose + big_3.transpose[1..2].transpose

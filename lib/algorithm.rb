@@ -165,7 +165,7 @@ class Algorithm
     end
 
     def self.ranging(l)
-        return l.collect{ |ele| ele / (1224.74*1.25 )}
+        return l.collect{ |ele| ele / (1530.925)}
         # 1224.74
     end
 
@@ -184,7 +184,7 @@ class Algorithm
             matrix_theta = N.zeros([matrix_x.cols,1])
             data_placement += lengths_of_data[pos + 1]
             i = 0
-            i_max = 701
+            i_max = 751
             r = -Algorithm.compute_cost_multi_logistic_df(matrix_theta,matrix_x,matrix_y)
             d = r
             while (i < i_max)
