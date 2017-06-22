@@ -20,6 +20,17 @@ class Rotate
         end
         return final_tots
     end
+    def self.rotate_2d_df(big_l, angles)  
+        rad_angle = angles[0]*Math::PI/180.0
+        rotate_matrix = N[[-Math.sin(rad_angle),-Math.cos(rad_angle)],[Math.cos(rad_angle), -Math.sin(rad_angle)]]
+        final_tots = []
+        big_l.each do |l|
+            current = N[l[0..(l.length - 1)]]
+            tots = current.dot(rotate_matrix)
+            final_tots += [tots.to_a]
+        end
+        return final_tots
+    end
     def self.rotate_3d(big_l, angles)
         angle_x = angles[0]*Math::PI/180.0
         rotate_x =  N[[1.0,0.0,0.0],[0.0,Math.cos(angle_x),-Math.sin(angle_x)],[0.0,Math.sin(angle_x),Math.cos(angle_x)]]
@@ -62,8 +73,10 @@ class Rotate
     end
 
     def self.computeCost_df_2d(theta,x)
-        new_data = Rotate.rotate_2d(x, theta).transpose
-        return N[[2.0*Rotate.slope(N[*new_data[1]],N[*new_data[0]])],[0.0]]
+        new_data = Rotate.rotate_2d(x, theta)
+        nd_df = Rotate.rotate_2d_df(new_data, theta[0..0]).transpose
+        new_data = new_data.transpose
+        return N[[ 2.0*Rotate.slope(N[*new_data[1]],N[*new_data[0]])],[0.0]]
     end
     def self.computeCost_3d(theta,x)
         new_data = Rotate.rotate_3d(x, theta).transpose

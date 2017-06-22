@@ -187,11 +187,11 @@ class Algorithm
             matrix_theta = N.zeros([matrix_x.cols,1])
             data_placement += lengths_of_data[pos + 1]
             i = 0
-            i_max = 751
+            i_max = 351
             r = -Algorithm.compute_cost_multi_logistic_df(matrix_theta,matrix_x,matrix_y)
             d = r
             while (i < i_max)
-                if i % 350 == 0
+                if i % 175 == 0
                     curr = Algorithm.compute_cost_multi_logistic(matrix_x.to_a,matrix_y.to_a,matrix_theta.to_a)
                     z = (Matrix[*Algorithm.meshing(results,pol2)] * Matrix[*matrix_theta.to_a] ).collect{ |e| Algorithm.num_reg(Algorithm.sigmoid_function(e)) }.to_a.transpose[0].mean
                     p "cost at iter" + i.to_s + " is :" + curr.to_s + " ====== " + z.to_s

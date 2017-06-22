@@ -82,12 +82,12 @@ class Rep
         alphastore = []
         hess = Rep.hessian(matrix_x)
         while (i < i_max)
-                if i % 200 == 0
+                # if i % 200 == 0
                     # curr = Rep.compute_cost_multi_var(matrix_x.to_a,matrix_y.to_a,matrix_theta.to_a)
                     # z = (Matrix[*Algorithm.meshing(xx,pol2)] * Matrix[*matrix_theta.to_a] ).to_a.transpose[0]
                     # p "cost at iter" + i.to_s + " is :" + curr.to_s + " ====== " + z.to_s
                     # TODO: check logistic_df, and make sure poly functions are actually doing their jobs!
-                end
+                # end
             alpha = ((-r.transpose.dot(d)) /  (( d.transpose.dot(hess)).dot(d)))[0,0]
             alphastore = alphastore+[alpha]
             # p "alpha: "
@@ -108,6 +108,9 @@ class Rep
         return z
     end
     def self.rep_predict(arr_x,arr_y,arr_z)
+
+        # curl
+
 
         x1 = Algorithm.array_string_to_array("1000.0,906.0,937.0,937.0,953.0,1218.0,906.0,531.0,718.0,671.0,")
         y1 = Algorithm.array_string_to_array("62.0,250.0,187.0,421.0,171.0,125.0,421.0,546.0,-453.0,-703.0,")
@@ -192,6 +195,199 @@ class Rep
         plus += [[mag1.standard_deviation]]
         plus1 += [mag1.length]
         y += [[11.0]]
+
+        # press
+        x1 = Algorithm.array_string_to_array("171.0,250.0,515.0,171.0,484.0,546.0,")
+        y1 = Algorithm.array_string_to_array("875.0,656.0,1031.0,750.0,453.0,-843.0,")
+        z1 = Algorithm.array_string_to_array("203.0,156.0,640.0,46.0,484.0,-281.0,")
+        mag1 = Rep.mags(x1,y1,z1)
+        plus += [[mag1.standard_deviation]]
+        plus1 += [mag1.length]
+        y += [[ 2.0]]
+
+        x1 = Algorithm.array_string_to_array("968.0,343.0,500.0,390.0,593.0,250.0,656.0,265.0,437.0,781.0,609.0,671.0,")
+        y1 = Algorithm.array_string_to_array("-1000.0,671.0,921.0,890.0,906.0,625.0,812.0,468.0,984.0,-859.0,-765.0,-718.0,")
+        z1 = Algorithm.array_string_to_array("-546.0,-46.0,234.0,-31.0,-46.0,156.0,-31.0,15.0,78.0,-375.0,-281.0,-281.0,")
+        mag1 = Rep.mags(x1,y1,z1)
+        plus += [[mag1.standard_deviation]]
+        plus1 += [mag1.length]
+        y += [[ 4.0]]
+
+        x1 = Algorithm.array_string_to_array("578.0,234.0,421.0,296.0,531.0,109.0,328.0,250.0,156.0,359.0,218.0,859.0,718.0,640.0,")
+        y1 = Algorithm.array_string_to_array("46.0,1312.0,937.0,1250.0,1562.0,546.0,1453.0,1093.0,812.0,1453.0,671.0,-93.0,-640.0,-718.0,")
+        z1 = Algorithm.array_string_to_array("-296.0,93.0,109.0,46.0,281.0,78.0,-140.0,125.0,234.0,218.0,218.0,-390.0,-328.0,-281.0,")
+        mag1 = Rep.mags(x1,y1,z1)
+        plus += [[mag1.standard_deviation]]
+        plus1 += [mag1.length]
+        y += [[ 6.0]]
+
+        x1 = Algorithm.array_string_to_array("500.0,140.0,343.0,468.0,328.0,421.0,156.0,203.0,359.0,125.0,531.0,218.0,218.0,296.0,968.0,703.0,")
+        y1 = Algorithm.array_string_to_array("390.0,265.0,984.0,843.0,1125.0,953.0,703.0,1046.0,1031.0,656.0,1203.0,875.0,937.0,1031.0,-578.0,-656.0,")
+        z1 = Algorithm.array_string_to_array("15.0,31.0,-62.0,62.0,-46.0,62.0,78.0,-62.0,0.0,187.0,-62.0,125.0,0.0,-46.0,-515.0,-296.0,")
+        mag1 = Rep.mags(x1,y1,z1)
+        plus += [[mag1.standard_deviation]]
+        plus1 += [mag1.length]
+        y += [[8.0 ]]
+
+        x1 = Algorithm.array_string_to_array("312.0,62.0,125.0,375.0,46.0,406.0,265.0,218.0,250.0,312.0,93.0,515.0,156.0,312.0,343.0,281.0,234.0,500.0,906.0,609.0,")
+        y1 = Algorithm.array_string_to_array("906.0,734.0,890.0,1640.0,578.0,1187.0,1234.0,937.0,1343.0,859.0,593.0,1421.0,765.0,843.0,1140.0,703.0,750.0,1203.0,-687.0,-656.0,")
+        z1 = Algorithm.array_string_to_array("-140.0,-15.0,156.0,140.0,0.0,296.0,62.0,156.0,234.0,125.0,-31.0,46.0,0.0,62.0,156.0,171.0,93.0,125.0,-296.0,-328.0,")
+        mag1 = Rep.mags(x1,y1,z1)
+        plus += [[mag1.standard_deviation]]
+        plus1 += [mag1.length]
+        y += [[ 10.0]]
+
+        x1 = Algorithm.array_string_to_array("718.0,218.0,484.0,218.0,375.0,484.0,312.0,250.0,687.0,218.0,359.0,437.0,218.0,484.0,484.0,343.0,703.0,312.0,171.0,531.0,796.0,656.0,")
+        y1 = Algorithm.array_string_to_array("-453.0,562.0,1375.0,687.0,875.0,984.0,750.0,796.0,1500.0,671.0,812.0,921.0,515.0,906.0,1046.0,781.0,1265.0,531.0,609.0,171.0,-656.0,-750.0,")
+        z1 = Algorithm.array_string_to_array("31.0,-46.0,187.0,0.0,156.0,171.0,109.0,109.0,187.0,62.0,93.0,93.0,-109.0,234.0,78.0,-281.0,203.0,-46.0,-203.0,156.0,-187.0,-281.0,")
+        mag1 = Rep.mags(x1,y1,z1)
+        plus += [[mag1.standard_deviation]]
+        plus1 += [mag1.length]
+        y += [[ 12.0]]
+
+        x1 = Algorithm.array_string_to_array("1078.0,890.0,562.0,500.0,234.0,734.0,640.0,718.0,203.0,234.0,390.0,812.0,234.0,187.0,234.0,718.0,359.0,156.0,250.0,765.0,484.0,921.0,656.0,")
+        y1 = Algorithm.array_string_to_array("-953.0,1250.0,1531.0,968.0,453.0,1062.0,1156.0,1312.0,500.0,453.0,765.0,1687.0,515.0,500.0,625.0,1656.0,640.0,375.0,656.0,1421.0,937.0,-843.0,-781.0,")
+        z1 = Algorithm.array_string_to_array("-296.0,343.0,140.0,62.0,-218.0,250.0,328.0,218.0,-156.0,-156.0,78.0,93.0,-156.0,-46.0,31.0,0.0,-31.0,-93.0,31.0,187.0,203.0,-281.0,-265.0,")
+        mag1 = Rep.mags(x1,y1,z1)
+        plus += [[mag1.standard_deviation]]
+        plus1 += [mag1.length]
+        y += [[ 15.0]]
+
+        x1 = Algorithm.array_string_to_array("640.0,296.0,937.0,546.0,375.0,421.0,593.0,671.0,")
+        y1 = Algorithm.array_string_to_array("-515.0,546.0,1437.0,812.0,734.0,546.0,-656.0,-734.0,")
+        z1 = Algorithm.array_string_to_array("-78.0,-46.0,234.0,-15.0,62.0,187.0,-218.0,-328.0,")
+        mag1 = Rep.mags(x1,y1,z1)
+        plus += [[mag1.standard_deviation]]
+        plus1 += [mag1.length]
+        y += [[ 3.0]]
+
+        x1 = Algorithm.array_string_to_array("828.0,406.0,312.0,296.0,125.0,328.0,312.0,125.0,546.0,921.0,671.0,")
+        y1 = Algorithm.array_string_to_array("-531.0,1031.0,1765.0,937.0,531.0,1453.0,1234.0,593.0,406.0,-687.0,-734.0,")
+        z1 = Algorithm.array_string_to_array("78.0,125.0,171.0,281.0,-125.0,0.0,203.0,-46.0,187.0,-390.0,-281.0,")
+        mag1 = Rep.mags(x1,y1,z1)
+        plus += [[mag1.standard_deviation]]
+        plus1 += [mag1.length]
+        y += [[ 5.0]]
+
+        x1 = Algorithm.array_string_to_array("453.0,406.0,234.0,453.0,515.0,187.0,156.0,359.0,656.0,343.0,343.0,187.0,500.0,421.0,484.0,890.0,640.0,")
+        y1 = Algorithm.array_string_to_array("234.0,406.0,218.0,1000.0,1187.0,437.0,531.0,859.0,1281.0,656.0,687.0,437.0,828.0,828.0,921.0,-890.0,-656.0,")
+        z1 = Algorithm.array_string_to_array("203.0,-78.0,-78.0,265.0,171.0,-109.0,-62.0,171.0,31.0,62.0,31.0,-140.0,187.0,78.0,140.0,-187.0,-296.0,")
+        mag1 = Rep.mags(x1,y1,z1)
+        plus += [[mag1.standard_deviation]]
+        plus1 += [mag1.length]
+        y += [[ 11.0]]
+        # row
+        x1 = Algorithm.array_string_to_array("515.0,234.0,265.0,281.0,500.0,687.0,")
+        y1 = Algorithm.array_string_to_array("-1312.0,-953.0,-1093.0,-1062.0,-671.0,-609.0,")
+        z1 = Algorithm.array_string_to_array("-218.0,109.0,-15.0,78.0,-109.0,-281.0,")
+        mag1 = Rep.mags(x1,y1,z1)
+        plus += [[mag1.standard_deviation]]
+        plus1 += [mag1.length]
+        y += [[ 2.0]]
+
+        x1 = Algorithm.array_string_to_array("406.0,171.0,187.0,234.0,125.0,468.0,593.0,703.0,")
+        y1 = Algorithm.array_string_to_array("-1203.0,-984.0,-953.0,-1078.0,-421.0,-1250.0,-781.0,-656.0,")
+        z1 = Algorithm.array_string_to_array("-281.0,218.0,109.0,-187.0,453.0,-156.0,-218.0,-281.0,")
+        mag1 = Rep.mags(x1,y1,z1)
+        plus += [[mag1.standard_deviation]]
+        plus1 += [mag1.length]
+        y += [[ 3.0]]
+
+        x1 = Algorithm.array_string_to_array("375.0,218.0,171.0,203.0,296.0,453.0,203.0,375.0,390.0,531.0,593.0,656.0,")
+        y1 = Algorithm.array_string_to_array("-734.0,93.0,-1015.0,-1046.0,-968.0,-1062.0,-906.0,-1125.0,-1312.0,-656.0,-859.0,-734.0,")
+        z1 = Algorithm.array_string_to_array("281.0,359.0,-78.0,31.0,93.0,-421.0,281.0,-156.0,-125.0,-156.0,-296.0,-281.0,")
+        mag1 = Rep.mags(x1,y1,z1)
+        plus += [[mag1.standard_deviation]]
+        plus1 += [mag1.length]
+        y += [[ 5.0]]
+
+        x1 = Algorithm.array_string_to_array("343.0,265.0,296.0,343.0,609.0,562.0,265.0,421.0,531.0,218.0,531.0,609.0,")
+        y1 = Algorithm.array_string_to_array("-843.0,-968.0,-906.0,-968.0,-1062.0,-1171.0,-546.0,-1093.0,-1125.0,-453.0,-593.0,-765.0,")
+        z1 = Algorithm.array_string_to_array("93.0,125.0,-62.0,46.0,-281.0,-218.0,140.0,-109.0,-343.0,171.0,-125.0,-296.0,")
+        mag1 = Rep.mags(x1,y1,z1)
+        plus += [[mag1.standard_deviation]]
+        plus1 += [mag1.length]
+        y += [[ 6.0]]
+
+        x1 = Algorithm.array_string_to_array("406.0,187.0,328.0,250.0,218.0,390.0,218.0,140.0,359.0,265.0,312.0,421.0,296.0,468.0,656.0,")
+        y1 = Algorithm.array_string_to_array("-890.0,-687.0,-1140.0,-812.0,-218.0,-1234.0,-875.0,-328.0,-1390.0,-1250.0,-1265.0,-1328.0,-1031.0,-750.0,-734.0,")
+        z1 = Algorithm.array_string_to_array("93.0,187.0,-187.0,140.0,406.0,-250.0,234.0,484.0,-359.0,-109.0,-109.0,-312.0,125.0,-218.0,-312.0,")
+        mag1 = Rep.mags(x1,y1,z1)
+        plus += [[mag1.standard_deviation]]
+        plus1 += [mag1.length]
+        y += [[ 8.0]]
+
+        x1 = Algorithm.array_string_to_array("453.0,281.0,203.0,296.0,515.0,312.0,203.0,562.0,484.0,265.0,546.0,687.0,390.0,359.0,500.0,500.0,531.0,718.0,671.0,")
+        y1 = Algorithm.array_string_to_array("-843.0,-1125.0,15.0,-1281.0,-1234.0,-781.0,-421.0,-1109.0,-1062.0,-390.0,-1093.0,-1015.0,-1000.0,-843.0,-1015.0,-1000.0,-843.0,-687.0,-734.0,")
+        z1 = Algorithm.array_string_to_array("-46.0,-203.0,343.0,-78.0,-421.0,234.0,343.0,-328.0,-234.0,203.0,-234.0,-312.0,125.0,31.0,-218.0,62.0,-218.0,-250.0,-281.0,")
+        mag1 = Rep.mags(x1,y1,z1)
+        plus += [[mag1.standard_deviation]]
+        plus1 += [mag1.length]
+        y += [[ 10.0]]
+
+        x1 = Algorithm.array_string_to_array("468.0,437.0,671.0,578.0,906.0,562.0,218.0,640.0,531.0,234.0,640.0,546.0,234.0,531.0,593.0,328.0,781.0,453.0,140.0,687.0,625.0,671.0,")
+        y1 = Algorithm.array_string_to_array("-1015.0,-921.0,-1156.0,-593.0,-1171.0,-1046.0,-296.0,-1140.0,-1109.0,-328.0,-1156.0,-1156.0,-265.0,-968.0,-1046.0,-453.0,-1125.0,-859.0,-156.0,-875.0,-625.0,-718.0,")
+        z1 = Algorithm.array_string_to_array("-93.0,-15.0,-187.0,-109.0,-546.0,-203.0,390.0,-343.0,-125.0,218.0,-406.0,-375.0,265.0,-62.0,-187.0,265.0,-468.0,234.0,500.0,-296.0,-218.0,-296.0,")
+        mag1 = Rep.mags(x1,y1,z1)
+        plus += [[mag1.standard_deviation]]
+        plus1 += [mag1.length]
+        y += [[12.0 ]]
+
+        x1 = Algorithm.array_string_to_array("343.0,265.0,531.0,390.0,359.0,546.0,515.0,546.0,562.0,453.0,609.0,578.0,250.0,796.0,515.0,140.0,640.0,578.0,218.0,781.0,531.0,468.0,343.0,453.0,640.0,656.0,")
+        y1 = Algorithm.array_string_to_array("-906.0,-859.0,-1234.0,-1000.0,-906.0,-1156.0,-968.0,-1156.0,-953.0,-609.0,-1031.0,-906.0,-203.0,-1140.0,-1000.0,125.0,-1046.0,-1046.0,-203.0,-1156.0,-953.0,-875.0,-875.0,-890.0,-812.0,-718.0,")
+        z1 = Algorithm.array_string_to_array("156.0,140.0,-328.0,78.0,93.0,-250.0,62.0,-156.0,-234.0,125.0,-312.0,-125.0,234.0,-484.0,-125.0,531.0,-218.0,46.0,359.0,-359.0,-156.0,234.0,-15.0,-218.0,-265.0,-281.0,")
+        mag1 = Rep.mags(x1,y1,z1)
+        plus += [[mag1.standard_deviation]]
+        plus1 += [mag1.length]
+        y += [[ 15.0]]
+
+        x1 = Algorithm.array_string_to_array("515.0,250.0,156.0,296.0,343.0,406.0,171.0,609.0,468.0,265.0,640.0,296.0,562.0,")
+        y1 = Algorithm.array_string_to_array("-843.0,-1109.0,109.0,-1078.0,-1125.0,-1000.0,31.0,-1328.0,-937.0,-421.0,-1203.0,-593.0,-671.0,")
+        z1 = Algorithm.array_string_to_array("-140.0,-140.0,453.0,31.0,-93.0,109.0,562.0,-328.0,-62.0,359.0,-359.0,187.0,-265.0,")
+        mag1 = Rep.mags(x1,y1,z1)
+        plus += [[mag1.standard_deviation]]
+        plus1 += [mag1.length]
+        y += [[ 7.0]]
+
+        x1 = Algorithm.array_string_to_array("359.0,437.0,546.0,406.0,78.0,562.0,375.0,140.0,500.0,265.0,")
+        y1 = Algorithm.array_string_to_array("-1093.0,-1484.0,-1343.0,-1046.0,171.0,-1296.0,-1015.0,-62.0,-812.0,-593.0,")
+        z1 = Algorithm.array_string_to_array("-93.0,-375.0,-171.0,171.0,562.0,-406.0,250.0,484.0,-187.0,-187.0,")
+        mag1 = Rep.mags(x1,y1,z1)
+        plus += [[mag1.standard_deviation]]
+        plus1 += [mag1.length]
+        y += [[ 5.0]]
+
+        
+
+
+
+
+
+
+
+
+
+
+        # x1 = Algorithm.array_string_to_array("")
+        # y1 = Algorithm.array_string_to_array("")
+        # z1 = Algorithm.array_string_to_array("")
+        # mag1 = Rep.mags(x1,y1,z1)
+        # plus += [[mag1.standard_deviation]]
+        # plus1 += [mag1.length]
+        # y += [[ ]]
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
