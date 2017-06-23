@@ -451,7 +451,13 @@ class Rep
             plus1 += [mag1.length]
             y += [[ 12.0]]           
             
-
+            x1 = Algorithm.array_string_to_array("687.0,390.0,796.0,1343.0,62.0,375.0,218.0,781.0,843.0,953.0,1687.0,1984.0,781.0,687.0,718.0,")
+            y1 = Algorithm.array_string_to_array("62.0,-109.0,-15.0,-15.0,203.0,15.0,109.0,-218.0,-234.0,-281.0,62.0,-78.0,-234.0,-890.0,-671.0,")
+            z1 = Algorithm.array_string_to_array("156.0,-312.0,-31.0,140.0,-156.0,-265.0,-250.0,-156.0,-171.0,-31.0,-140.0,-375.0,-281.0,-234.0,-281.0,")
+            mag1 = Rep.mags(x1,y1,z1)
+            plus += [[ mag1.standard_deviation, mag1.sum]]
+            plus1 += [mag1.length]
+            y += [[ 10.0]]   
 
         # # row
         elsif exer_name == "Row"
