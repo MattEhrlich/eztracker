@@ -4,6 +4,8 @@
 /*=========FONTS ADDED BELOW============*/
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|PT+Sans');
 @import url('https://fonts.googleapis.com/css?family=Kanit:700i');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:300,700');
 /*=========FONTS ADDED ABOVE============*/
 
 .clr {
@@ -11,9 +13,10 @@
 }
 
 .navbar {
-	line-height: 70px;
-	background-color: #0e455f;
+	line-height: 50px;
+	background-color: #fff;
 	border: none;
+	height: 40px;
 }
 
 .link-spacing {
@@ -27,12 +30,6 @@
 	text-decoration: none; 
 	color: #fff;
 	font-size: 17px;
-}
-
-.eztracker-icon {
-	width: 100px;
-	margin-left: 100px;
-	margin-top: 3px;
 }
 
 @media (min-width: 769px) {

@@ -42,7 +42,6 @@ GEM
     arel (7.1.4)
     autoprefixer-rails (7.1.2.2)
       execjs
-    backports (3.8.0)
     bcrypt (3.1.11)
     bindex (0.5.0)
     bootstrap-sass (3.3.7)
@@ -252,13 +251,9 @@ GEM
     minitest (5.10.2)
     multi_json (1.12.1)
     nio4r (2.1.0)
-    nmatrix (0.2.3)
-      packable (~> 1.3, >= 1.3.5)
     nokogiri (1.8.0)
       mini_portile2 (~> 2.2.0)
     orm_adapter (0.5.0)
-    packable (1.3.8)
-      backports
     pg (0.21.0)
     polynomial (0.7.1)
     puma (3.9.1)
@@ -390,7 +385,6 @@ DEPENDENCIES
   jquery-rails
   listen (~> 3.0.5)
   mini_magick
-  nmatrix
   pg (~> 0.18)
   polynomial
   puma (~> 3.0)

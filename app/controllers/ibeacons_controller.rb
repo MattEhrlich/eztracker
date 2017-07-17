@@ -2,7 +2,7 @@ class IbeaconsController < ApplicationController
 	skip_before_filter  :verify_authenticity_token
 	require './lib/algorithm.rb'
 	require './lib/rep.rb'
-    require './lib/rotate.rb'
+   require './lib/rotate.rb'
 	def index 
         beginning_time = Time.now
          p "========================"
