@@ -1,7 +1,39 @@
-<div class="col-xs-12 col-sm-10 col-sm-offset-1">
-	<%= month_calendar do |date| %>
-	  <%= date %>
-	<% end %>
+<div class="dashboard-container col-xs-12">
+	<div class="col-xs-12 col-sm-8">
+		<%= month_calendar do |date| %>
+		  <%= date %>
+		<% end %>
+	</div>
+	<div class="col-xs-12 col-sm-4">
+		<div class="previous-workouts col-xs-12 text-center">
+			<span class="previous-workouts-header">Most Recent Workouts <span><%= link_to "", ibeacons_path, class: "fa fa-plus pull-right" %></span></span>
+			<div class="workout-card col-xs-12 text-left">
+				<h4 class="text-center card-header">Biceps / Triceps</h4>
+				<hr />
+				<span class="card-category">Total Exercises: <span class="category-result">9</span></span><br />
+				<span class="card-category">Total Sets: <span class="category-result">23</span></span><br />
+				<span class="card-category">Weight Lifted: <span class="category-result">2,472 lbs.</span></span><br />
+				<hr />
+				<span class="card-category">Date: <span class="category-result">8/12/17 - 4:00pm</span></span>
+			</div>
+			<div class="workout-card col-xs-12 text-left">
+				<h4 class="text-center card-header">Back / Core</h4>
+				<hr />
+				<span class="card-category">Total Exercises: <span class="category-result">9</span></span><br />
+				<span class="card-category">Total Sets: <span class="category-result">23</span></span><br />
+				<span class="card-category">Weight Lifted: <span class="category-result">2,472 lbs.</span></span><br />
+				<hr />
+				<span class="card-category">Date: <span class="category-result">8/12/17 - 4:00pm</span></span>
+			</div>
+			<div class="workout-card col-xs-12 text-left">
+				<h4 class="text-center card-header">Shoulders</h4>
+				<hr />
+				<span class="card-category">Total Exercises: <span class="category-result">9</span></span><br />
+				<span class="card-category">Total Sets: <span class="category-result">23</span></span><br />
+				<span class="card-category">Weight Lifted: <span class="category-result">2,472 lbs.</span></span><br />
+				<hr />
+				<span class="card-category">Date: <span class="category-result">8/12/17 - 4:00pm</span></span>
+			</div>			
+		</div>
+	</div>
 </div>
-<br class="clr" /><br /><br /><br /><br /><br />
-<%= render "partials/bottomnav" %>

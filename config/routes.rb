@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   get 'menu', to: 'staticpages#menu'
   get 'performance', to: 'staticpages#performance'
   get 'analytics', to: 'staticpages#analytics'
+  get 'dashboard', to: 'staticpages#dashboard'
 end
