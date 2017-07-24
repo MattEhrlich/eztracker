@@ -132,6 +132,7 @@ class Ibeacon < ApplicationRecord
         big_4 = xx.transpose
         big_4 = (big_4.transpose << yy[0]).transpose
         big_4 = (big_4.transpose << zz[0]).transpose
+        
         theta = Rotate.angle_guess_3d(big_4)
         datr3 = Rotate.rotate_3d(big_4, theta).transpose
         datr3[0] = datr3[0].collect{ |ele| ele - (datr3[0]).mean}

@@ -171,6 +171,27 @@ class Algorithm
         return l.collect{ |ele| ele * (2.5)}
         # 1224.74
     end
+    def self.magnitute(x,y,z)
+        return Math.sqrt((x**2) + (y**2) + (z**2))
+    end
+    def self.is_not_walking?(x,y,z)
+        mags = []
+
+        big = [x].transpose
+        big = (big.transpose << y).transpose
+        big = (big.transpose << z).transpose
+        theta = Rotate.angle_guess_3d(big)
+        datr3 = Rotate.rotate_3d(big, theta).transpose
+        datr3[0] = datr3[0].collect{ |ele| ele - (datr3[0]).mean}
+        datr3[1] = datr3[1].collect{ |ele| ele - (datr3[1]).mean}
+        datr3[2] = datr3[2].collect{ |ele| ele - (datr3[2]).mean}
+        x.each_with_index do |item, i|
+            mags = mags + [Algorithm.magnitute(datr3[0][i],datr3[1][i],datr3[2][i])]
+        end
+        p mags.standard_deviation
+        return false if mags.standard_deviation <= 150.0
+        return true
+    end
 
     def self.nonlinear_logistic_regression_tester(choices ,data, pol, pol2, lengths_of_data)
         results = data[0..(lengths_of_data[0] -1) ]
