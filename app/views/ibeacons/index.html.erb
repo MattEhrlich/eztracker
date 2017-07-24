@@ -5,11 +5,11 @@
 		<span><span>X Coordinates: </span><%= data.x_motion %></span><br class="clr" />
 		<span><span>Y Coordinates: </span><%= data.y_motion %></span><br class="clr" />
 		<span><span>Z Coordinates: </span><%= data.z_motion %></span><br class="clr" />-->
-      <span class="text-center"><i class="glyphicon glyphicon-th-list"></i><span> Workout: </span><%= data.exercise_name %></h3>
+      <span class="text-center"><span> Workout: </span><span class="category-result"><%= data.exercise_name %></span></h3>
       <hr />
-      <span><i class="glyphicon glyphicon-flash"></i><span> Reps: </span><%= data.reps_counted %></span><br class="clr" />
-      <span><i class="glyphicon glyphicon-fire"></i><span> Calories Burned: </span><%= data.reps_counted * 0.4918 %></span><br class="clr" />
-      <span><i class="glyphicon glyphicon-heart"></i><span> Total Weight Lifted: </span><%= data.reps_counted * 20 %></span><br class="clr" />
+      <span><i class="glyphicon glyphicon-flash"></i><span> Reps: </span><span class="category-result"><%= data.reps_counted %></span></span><br class="clr" />
+      <span><i class="glyphicon glyphicon-fire"></i><span> Calories Burned: </span><span class="category-result"><%= data.reps_counted * 0.4918 %></span></span><br class="clr" />
+      <span><i class="glyphicon glyphicon-heart"></i><span> Total Weight Lifted: </span><span class="category-result"><%= data.reps_counted * 20 %></span></span><br class="clr" />
 	</div>
 	<% end %>
 </div>
