@@ -4,9 +4,9 @@ class IbeaconsController < ApplicationController
 	require './lib/rep.rb'
    require './lib/rotate.rb'
 	def index 
-   #      beginning_time = Time.now
-   #       p "========================"
-	  #   @info = Ibeacon.new 
+      #   beginning_time = Time.now
+      #   p "========================"
+	     # @info = Ibeacon.new 
    #      tally = 0
    #      correct = 0
    #      error = []
@@ -707,13 +707,25 @@ class IbeaconsController < ApplicationController
    #      p "Curl"
    #      error += [(@info.reps_counted.to_i- 10).abs / 10.0]
    #      p"10"
+# ########################################################################
+      # x = Algorithm.array_string_to_array("")
+      # y = Algorithm.array_string_to_array("")
+      # z = Algorithm.array_string_to_array("")
 
+      # x = Algorithm.array_string_to_array("234.0,1203.0,984.0,1078.0,1062.0,-93.0,1203.0,1062.0,640.0,1000.0,1000.0,625.0,1218.0,437.0,703.0,671.0,671.0,")
+      # y = Algorithm.array_string_to_array("625.0,-562.0,-31.0,-15.0,-625.0,703.0,-296.0,0.0,-46.0,-890.0,156.0,187.0,-500.0,250.0,-562.0,-625.0,-734.0,")
+      # z = Algorithm.array_string_to_array("171.0,-218.0,-125.0,-125.0,-250.0,328.0,-125.0,-78.0,78.0,-218.0,15.0,-31.0,-296.0,31.0,-234.0,-265.0,-281.0,")
 
-
-
- 		# @info.exercise_name = @info.classify_exercise(@info.x_motion,@info.y_motion,@info.z_motion)
- 		# @info.reps_counted = Rep.rep_predict(@info.x_motion,@info.y_motion,@info.z_motion, @info.exercise_name)
- 		# @info.save
+ 		# x = Algorithm.array_string_to_array("843.0,812.0,828.0,1000.0,1218.0,843.0,953.0,828.0,843.0,765.0,")
+   #    y = Algorithm.array_string_to_array("-453.0,-406.0,-500.0,-625.0,-640.0,-406.0,-375.0,-390.0,-437.0,-421.0,")
+   #    z = Algorithm.array_string_to_array("-187.0,-234.0,-156.0,-234.0,-218.0,-62.0,-187.0,-281.0,-203.0,-125.0,")
+      # p "TEST"
+      # p Algorithm.is_not_walking?(x,y,z)
+      # p "TEST"
+# ########################################################################
+      # @info.exercise_name = @info.classify_exercise(@info.x_motion,@info.y_motion,@info.z_motion)
+      # @info.reps_counted = Rep.rep_predict(@info.x_motion,@info.y_motion,@info.z_motion, @info.exercise_name)
+      # @info.save
         
 	    @data = Ibeacon.all
 
@@ -736,13 +748,18 @@ class IbeaconsController < ApplicationController
 	end
 	
 	def create
-		@info = Ibeacon.new 
-		@info.x_motion = beacon_params["x_motion"]
- 		@info.y_motion = beacon_params["y_motion"]
- 		@info.z_motion = beacon_params["z_motion"]
- 		@info.exercise_name = @info.classify_exercise(beacon_params["x_motion"],beacon_params["y_motion"],beacon_params["z_motion"])
- 		@info.reps_counted = Rep.rep_predict(beacon_params["x_motion"],beacon_params["y_motion"],beacon_params["z_motion"], @info.exercise_name)
- 		@info.save
+      x = Algorithm.array_string_to_array(beacon_params["x_motion"])
+      y = Algorithm.array_string_to_array(beacon_params["y_motion"])
+      z = Algorithm.array_string_to_array(beacon_params["z_motion"])
+      if Algorithm.is_not_walking?(x,y,z) || x.length >= 6
+   		@info = Ibeacon.new 
+   		@info.x_motion = beacon_params["x_motion"]
+    		@info.y_motion = beacon_params["y_motion"]
+    		@info.z_motion = beacon_params["z_motion"]
+    		@info.exercise_name = @info.classify_exercise(beacon_params["x_motion"],beacon_params["y_motion"],beacon_params["z_motion"])
+    		@info.reps_counted = Rep.rep_predict(beacon_params["x_motion"],beacon_params["y_motion"],beacon_params["z_motion"], @info.exercise_name)
+    		@info.save
+      end
 		redirect_to ibeacons_path
 	end
 	
