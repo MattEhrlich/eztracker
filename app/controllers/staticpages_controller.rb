@@ -27,5 +27,8 @@ class StaticpagesController < ApplicationController
 	
 	def dashboard 
 	end
+	
+	def compare_workouts
+	end
 		
 end

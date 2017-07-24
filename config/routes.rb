@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   get 'performance', to: 'staticpages#performance'
   get 'analytics', to: 'staticpages#analytics'
   get 'dashboard', to: 'staticpages#dashboard'
+  get 'compare-workouts', to: 'staticpages#compare_workouts'
 end
