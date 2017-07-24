@@ -1,6 +1,6 @@
 <div class="container col-xs-12">
+	<% @data.each do |data| %>
 	<div class="workout-card col-xs-12 col-sm-4">
-		<% @data.each do |data| %>
 		<!--
 		<span><span>X Coordinates: </span><%= data.x_motion %></span><br class="clr" />
 		<span><span>Y Coordinates: </span><%= data.y_motion %></span><br class="clr" />
@@ -10,7 +10,7 @@
       <span><i class="glyphicon glyphicon-flash"></i><span> Reps: </span><%= data.reps_counted %></span><br class="clr" />
       <span><i class="glyphicon glyphicon-fire"></i><span> Calories Burned: </span><%= data.reps_counted * 0.4918 %></span><br class="clr" />
       <span><i class="glyphicon glyphicon-heart"></i><span> Total Weight Lifted: </span><%= data.reps_counted * 20 %></span><br class="clr" />
-      <% end %>
 	</div>
+	<% end %>
 </div>
 
