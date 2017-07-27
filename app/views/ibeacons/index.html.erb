@@ -11,6 +11,8 @@
       <span><i class="glyphicon glyphicon-fire"></i><span> Calories Burned: </span><span class="category-result"><%= data.reps_counted * 0.4918.round(2) %></span></span><br class="clr" />
       <span><i class="glyphicon glyphicon-heart"></i><span> Total Weight Lifted: </span><span class="category-result"><%= data.reps_counted * 20 %></span></span><br class="clr" />
 	</div>
+	<hr />
+	<span><%=data.created_at.strftime("%B %d - %l %M")%></span>
 	<% end %>
 </div>
 
