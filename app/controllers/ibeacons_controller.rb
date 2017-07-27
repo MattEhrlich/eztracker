@@ -24,10 +24,10 @@ class IbeaconsController < ApplicationController
  #    		@info.exercise_name = @info.classify_exercise(@info.x_motion,@info.y_motion,@info.z_motion)
  #    		@info.reps_counted = Rep.rep_predict(@info.x_motion,@info.y_motion,@info.z_motion, @info.exercise_name)
  #    		@info.save
- #         redirect_to ibeacons_path
+ #         redirect_to :back
  #      end
 		
-	# end
+	end
 
    def create
       x = Algorithm.array_string_to_array(beacon_params["x_motion"])
@@ -42,7 +42,7 @@ class IbeaconsController < ApplicationController
          @info.exercise_name = @info.classify_exercise(beacon_params["x_motion"],beacon_params["y_motion"],beacon_params["z_motion"])
          @info.reps_counted = Rep.rep_predict(beacon_params["x_motion"],beacon_params["y_motion"],beacon_params["z_motion"], @info.exercise_name)
          @info.save
-         redirect_to ibeacons_path
+         redirect_to :back
       end
       
    end
