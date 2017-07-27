@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   resources :trainings, only: [:update, :show, :create]
   resources :dashboards, only: [:show]
   resources :userprofiles
-  resources :ibeacons, {format: :json}
+  # resources :ibeacons, {format: :json}
+  resources :ibeacons, only: [:index, :new, :create, :show]
   get 'product', to: 'staticpages#product'
   get 'app', to: 'staticpages#app'
   get 'about', to: 'staticpages#about'

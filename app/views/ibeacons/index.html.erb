@@ -8,9 +8,16 @@
       <span class="text-center"><span> Workout: </span><span class="category-result"><%= data.exercise_name %></span></h3>
       <hr />
       <span><i class="glyphicon glyphicon-flash"></i><span> Reps: </span><span class="category-result"><%= data.reps_counted %></span></span><br class="clr" />
-      <span><i class="glyphicon glyphicon-fire"></i><span> Calories Burned: </span><span class="category-result"><%= data.reps_counted * 0.4918 %></span></span><br class="clr" />
+      <span><i class="glyphicon glyphicon-fire"></i><span> Calories Burned: </span><span class="category-result"><%= data.reps_counted * 0.4918.round(2) %></span></span><br class="clr" />
       <span><i class="glyphicon glyphicon-heart"></i><span> Total Weight Lifted: </span><span class="category-result"><%= data.reps_counted * 20 %></span></span><br class="clr" />
 	</div>
 	<% end %>
 </div>
+
+<!-- <button style=" text-align:center;margin:30px 0;"><%= link_to 'Press Me', ibeacons_path, :method => "POST"%></button> -->
+
+
+
+
+
 
