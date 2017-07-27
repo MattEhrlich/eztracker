@@ -44,7 +44,9 @@ class IbeaconsController < ApplicationController
             @info.reps_counted = Rep.rep_predict(beacon_params["x_motion"],beacon_params["y_motion"],beacon_params["z_motion"], @info.exercise_name)
             @info.weight_lb = beacon_params["weight_lb"][9..-2].to_i
             @info.save
-            redirect_back fallback_location: "/ibeacons"
+            respond_to do |format|
+               format.js {render inline: "location.reload();" }
+            end
          end
       end   
       
