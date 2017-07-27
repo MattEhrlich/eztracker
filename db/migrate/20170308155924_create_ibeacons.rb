@@ -7,6 +7,7 @@ class CreateIbeacons < ActiveRecord::Migration[5.0]
       t.string :z_motion
       t.string :exercise_name
       t.integer :reps_counted
+      t.integer :weight_lb
       t.timestamps
     end
   end

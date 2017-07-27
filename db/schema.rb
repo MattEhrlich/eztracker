@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20170405212851) do
     t.string   "z_motion"
     t.string   "exercise_name"
     t.integer  "reps_counted"
+    t.integer  "weight_lb"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
