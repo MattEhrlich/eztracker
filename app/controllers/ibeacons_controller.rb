@@ -40,8 +40,9 @@ class IbeaconsController < ApplicationController
          @info.z_motion = beacon_params["z_motion"]
          @info.exercise_name = @info.classify_exercise(beacon_params["x_motion"],beacon_params["y_motion"],beacon_params["z_motion"])
          @info.reps_counted = Rep.rep_predict(beacon_params["x_motion"],beacon_params["y_motion"],beacon_params["z_motion"], @info.exercise_name)
+         @info.weight_lb = beacon_params["weight_lb"]
          @info.save
-         
+
       end
       
    end
@@ -49,6 +50,6 @@ class IbeaconsController < ApplicationController
 	private
 	
 	def beacon_params
-		params.require(:ibeacon).permit(:x_motion, :y_motion, :z_motion)
+		params.require(:ibeacon).permit(:x_motion, :y_motion, :z_motion, :weight_lb)
 	end 
 end
