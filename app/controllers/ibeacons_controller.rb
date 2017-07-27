@@ -33,17 +33,19 @@ class IbeaconsController < ApplicationController
       y = Algorithm.array_string_to_array(beacon_params["y_motion"])
       z = Algorithm.array_string_to_array(beacon_params["z_motion"])
       p "check"
-      if Algorithm.is_not_walking?(x,y,z) && x.length >= 6 && Rep.rep_predict(beacon_params["x_motion"],beacon_params["y_motion"],beacon_params["z_motion"], "Shoulder Press") >= 1
-         @info = Ibeacon.new 
-         @info.x_motion = beacon_params["x_motion"]
-         @info.y_motion = beacon_params["y_motion"]
-         @info.z_motion = beacon_params["z_motion"]
-         @info.exercise_name = @info.classify_exercise(beacon_params["x_motion"],beacon_params["y_motion"],beacon_params["z_motion"])
-         @info.reps_counted = Rep.rep_predict(beacon_params["x_motion"],beacon_params["y_motion"],beacon_params["z_motion"], @info.exercise_name)
-         @info.weight_lb = beacon_params["weight_lb"][9..-2].to_i
-         @info.save
-
-      end
+      if x.length >= 6
+         # Algorithm.is_not_walking?(x,y,z)
+         if Rep.rep_predict(beacon_params["x_motion"],beacon_params["y_motion"],beacon_params["z_motion"], "Shoulder Press") >= 1
+            @info = Ibeacon.new 
+            @info.x_motion = beacon_params["x_motion"]
+            @info.y_motion = beacon_params["y_motion"]
+            @info.z_motion = beacon_params["z_motion"]
+            @info.exercise_name = @info.classify_exercise(beacon_params["x_motion"],beacon_params["y_motion"],beacon_params["z_motion"])
+            @info.reps_counted = Rep.rep_predict(beacon_params["x_motion"],beacon_params["y_motion"],beacon_params["z_motion"], @info.exercise_name)
+            @info.weight_lb = beacon_params["weight_lb"][9..-2].to_i
+            @info.save
+         end
+      end   
       
    end
 	
