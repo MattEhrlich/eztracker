@@ -1,11 +1,11 @@
 <div id="base" class="container col-xs-12">
-	<% @data.each do |data| %>
-	<div class="workout-card col-xs-12 col-sm-4">
+<!-- 	<% @data.each do |data| %>
+	<div class="workout-card col-xs-12 col-sm-4"> -->
 		<!--
 		<span><span>X Coordinates: </span><%= data.x_motion %></span><br class="clr" />
 		<span><span>Y Coordinates: </span><%= data.y_motion %></span><br class="clr" />
 		<span><span>Z Coordinates: </span><%= data.z_motion %></span><br class="clr" />-->
-      <span class="text-center"><span> Workout: </span><span class="category-result"><%= data.exercise_name %></span></h3>
+<!--       <span class="text-center"><span> Workout: </span><span class="category-result"><%= data.exercise_name %></span></h3>
       <hr />
       <span><i class="glyphicon glyphicon-flash"></i><span> Reps: </span><span class="category-result"><%= data.reps_counted %></span></span><br class="clr" />
       <span><i class="glyphicon glyphicon-fire"></i><span> Calories Burned: </span><span class="category-result"><%= data.reps_counted * 0.5 %></span></span><br class="clr" />
@@ -14,7 +14,7 @@
 	<span><%=data.created_at.strftime("%B %d - %I:%M:%S %p")%></span>
 	</div>
 	<% end %>
-</div>
+</div> -->
 <script>
 function formatAMPM(date) {
 
@@ -34,6 +34,28 @@ function formatAMPM(date) {
   var strTime = monthNames[months] + ' ' + days + ' - ' + hours + ':' + minutes + ":" + secs + ' ' + ampm;
   return strTime;
 }
+
+
+       $.ajax({ url: "/ibeacons", success: function(data) {
+            var main = document.getElementById("base")
+            sain = ""
+            for (var i = 0;i < data.length; i++){
+                curr = data[i]
+                console.log("poo")
+                var date = new Date(curr.created_at)
+                console.log(date)
+                sain += "<div class='workout-card col-xs-12 col-sm-4'>"
+                sain += "<span class='text-center'><span> Workout: </span><span class='category-result'>" + curr.exercise_name.toString() + "</span></h3><hr />"
+                sain += "<span><i class='glyphicon glyphicon-flash'></i><span> Reps: </span><span class='category-result'>" + curr.reps_counted.toString() + "</span></span><br class='clr' />"
+                sain += "<span><i class='glyphicon glyphicon-fire'></i><span> Calories Burned: </span><span class='category-result'>"+ (curr.reps_counted*0.5).toString() + "</span></span><br class='clr' />"
+                sain += "<span><i class='glyphicon glyphicon-heart'></i><span> Total Weight Lifted: </span><span class='category-result'>" + curr.weight_lb.toString() + "</span></span><br class='clr' />"
+                sain +="<hr />"
+                sain += "<span>"+ formatAMPM(date).toString() +"</span>"
+                sain += "</div>"
+            }
+            main.innerHTML = sain
+       }, dataType: "json"});
+
 
 (function poll() {
    setTimeout(function() {
