@@ -16,6 +16,25 @@
 	<% end %>
 </div>
 <script>
+function formatAMPM(date) {
+
+  var monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
+  date.setTime( date.getTime() + date.getTimezoneOffset()*60*1000 )
+  var hours = date.getHours();
+  var minutes = date.getMinutes();
+  var days = date.getDate();
+  var months = date.getMonth();
+  var secs = date.getSeconds()
+  var ampm = hours >= 12 ? 'PM' : 'AM';
+  hours = hours % 12;
+  hours = hours ? hours : 12; // the hour '0' should be '12'
+  minutes = minutes < 10 ? '0'+minutes : minutes;
+  var strTime = monthNames[months] + ' ' + days + ' - ' + hours + ':' + minutes + ":" + secs + ' ' + ampm;
+  return strTime;
+}
+
 (function poll() {
    setTimeout(function() {
        $.ajax({ url: "/ibeacons", success: function(data) {
@@ -23,13 +42,15 @@
             sain = ""
             for (var i = 0;i < data.length; i++){
                 curr = data[i]
+                var date = new Date(curr.created_at)
+                console.log(date)
                 sain += "<div class='workout-card col-xs-12 col-sm-4'>"
                 sain += "<span class='text-center'><span> Workout: </span><span class='category-result'>" + curr.exercise_name.toString() + "</span></h3><hr />"
                 sain += "<span><i class='glyphicon glyphicon-flash'></i><span> Reps: </span><span class='category-result'>" + curr.reps_counted.toString() + "</span></span><br class='clr' />"
                 sain += "<span><i class='glyphicon glyphicon-fire'></i><span> Calories Burned: </span><span class='category-result'>"+ (curr.reps_counted*0.5).toString() + "</span></span><br class='clr' />"
                 sain += "<span><i class='glyphicon glyphicon-heart'></i><span> Total Weight Lifted: </span><span class='category-result'>" + curr.weight_lb.toString() + "</span></span><br class='clr' />"
                 sain +="<hr />"
-                sain += "<span>Recently Received </span>"
+                sain += "<span>"+ formatAMPM(date).toString() +"</span>"
                 sain += "</div>"
             }
             main.innerHTML = sain
