@@ -1,13 +1,71 @@
-<div class="home-page_container col-xs-12">
-	<div class="col-xs-12 col-sm-6">
-		<h1>Where Your Fitness <br />Meets Technology</h1>
-	</div>
-	<div class="col-xs-12 col-sm-6">
-		<iframe class="demo-video" width="530" height="300" src="https://www.youtube.com/embed/SrsHBjzt2E8" frameborder="0" allowfullscreen></iframe>
+<div class="home-page_container text-center">
+	<%= image_tag "landing-image.jpg", class: "img-responsive col-xs-12" %>
+	<div class="overlay col-xs-12 text-center">
+		<h1>THE COMPLETE TRACKING EXPERIENCE IS HERE</h1>
+		<%= link_to "", "", class: "glyphicon glyphicon-play" %>
 	</div>
 </div>
 <br class="clr" />
-<div class="next-step-container col-xs-12 text-center">
-	<h1>Join The Wait List</h1>
-	<input class="email-capture" type="text" name="email" placeholder="Enter your e-mail address"></input>
+<div class="about-eztrack text-center">
+	<h2 class="div-headers">ABOUT EZTRACK FITNESS</h2>
+	<div class="about-us col-xs-12 col-sm-8 col-sm-offset-2 text-center">
+		<div class="card">
+			<h3>About Us</h3>
+			<hr class="short-hr center-block" />
+			<p>ezTRACK Fitness is a fitness technology startup that plans to introduce a new approach to fitness tracking.</p>
+		</div>
+		<div class="card">
+			<h3>The Problem</h3>
+			<hr class="short-hr center-block" />
+			<p>It is way too difficult to track your fitness goals inside the gym. Fitness Tracking applications are too inconvenient, difficult to use, and provide you all the wrong fitness analytics. Fitness wearables are too bulky, uncomfortable, have short battery lives. In general, the market does not offer a good solution to tracking fitness analytics... until now.</p>
+		</div>
+		<div class="card">
+			<h3>The Solution</h3>
+			<hr class="short-hr center-block" />
+			<p>We promise to give the you, the gym member, an easy-to-use fitness tracking platform that produces actionable analytics. Our plan is simple - your gym will do all the tracking for you!</p>
+		</div>
+		<div class="card">
+			<h3>Our Mission</h3>
+			<hr class="short-hr center-block" />
+			<p>Our mission is to provide gyms the technology, equipment and service to provide a completely automated workout tracking experience for its members.</p>
+			<p>Our goal is to create a fitness tracking experience in which gym members can easily and clearly see their fitness progress so they can achieve their fitness goals.</p>
+		</div>
+	</div>
+	<br class="clr" /><br /><br /><br />
+	<%= link_to "Learn More", "", class: "learn-more-btn" %>
 </div>
+<br class="clr" /><br /><br />
+<div class="about-eztrack text-center">
+	<h2 class="div-headers">INTRODUCING THE EZTRACKER</h2>
+	<div class="col-xs-12 col-sm-6"><h3 class="image-text">With The EZTRACKER You'll Never Have To Wonder If You're Making Progress Again.</h3></div>
+	<div class="col-xs-12 col-sm-6"><%= image_tag "app-images", class: "img-responsive" %></div>
+	<br class="clr" /><br /><br />
+	<%= link_to "Learn More", "", class: "learn-more-btn" %>
+</div>
+<br class="clr" />
+<div class="home-page_container text-center">
+	<%= image_tag "image2.jpeg", class: "img-responsive col-xs-12", style: "height: 400px;" %>
+	<div class="overlay col-xs-12 text-center">
+		<br /><br /><br /><br /><br /><br /><br />
+		<h1>Fitness Tracking Made EZ</h1>
+	</div>
+</div>
+<br class="clr" />
+<div class="about-eztrack text-center">
+	<h2 class="div-headers">THE EZTRACK EXPERIENCE</h2>
+	<div class="col-xs-12 col-sm-6"><h3 class="image-text">EZTRACKER Provides a fitness tracking experience like no other.</h3></div>
+	<div class="col-xs-12 col-sm-6"><%= image_tag "app-images", class: "img-responsive" %></div>
+	<br class="clr" /><br /><br />
+	<%= link_to "Learn More", "", class: "learn-more-btn" %>
+</div>
+<br class="clr" />
+<div class="home-page_container text-center">
+	<%= image_tag "sign-up-image.jpg", class: "img-responsive col-xs-12" %>
+	<div class="overlay col-xs-12 text-center">
+		<h3 class="call-to-action-sign-up">Sign up for the latest news and updates about EZ Track Fitness</h3>
+		<input class="form-entry" type="text" name="email" placeholder="*Email Address"><br />
+		<input class="form-entry" type="text" name="fname" placeholder="*First Name"><br />
+	</div>
+</div>
+<br class="clr" />
+<%= render "partials/footer" %>

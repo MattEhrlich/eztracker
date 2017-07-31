@@ -81,21 +81,22 @@ body {
 	background-color: #fff;
 	padding: 20px;
 	margin-top: 40px;
-	box-shadow: 1px 4px 4px 1px #a7a7a7;
+	box-shadow: 1px 2px 3px 1px #a7a7a7;
 	border-radius: 5px;
-	border-top: 8px solid #0c6499;
+	border-top: 8px solid #DBA606;
+	
+	h3 {
+		margin-top: 0px;
+		color: #000;
+	}
 }
 
 .card:hover h3 {
-	font-size: 30px;
-}
-
-.card:hover p {
-	font-size: 18px;
+	font-size: 20px;
 }
 
 .card:hover hr {
-	border: 1px solid #0c6499;
+	border: 1px solid #DBA606;
 }
 
 .menu-page {
