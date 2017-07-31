@@ -5,6 +5,7 @@ class IbeaconsController < ApplicationController
    require './lib/rotate.rb'
 	def index 
       
+      p "hello"
       respond_to do |format|
       format.html {
         @data = Ibeacon.all
