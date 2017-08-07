@@ -1,5 +1,7 @@
 <div id="base" class="container col-xs-12">
-
+</div>
+<br class="clr" />
+<div class="stats-container col-xs-12">
 	<div class="col-xs-12 col-sm-6 pull-right">
 		<div class-"col-xs-12">
 			<%= @total_exercises %>
@@ -10,13 +12,10 @@
 			<% end %>
 		</div>
 		<div class-"col-xs-12">
-			<% @total_weight.each do |total| %>
-				<%= total.weight_lb %>
-			<% end %>
+			<%= @total_weight %>
 		</div>
-
 	</div>
-
+</div>
 <script>
 function formatAMPM(date) {
 
