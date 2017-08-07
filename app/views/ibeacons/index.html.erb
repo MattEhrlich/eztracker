@@ -3,26 +3,24 @@
 </div>
 <br class="clr" /><br />
 <div class="display-holder col-xs-12">
-	<div id="base" class="card-container col-xs-6">
+	<div id="base" class="card-container col-xs-4">
 	</div>
-	<div class="stats-container col-xs-6">
-		<div class="col-xs-12 col-sm-6 pull-right">
-			<div class-"col-xs-12">
-				<span><%= @total_exercises %></span>
-				<h5>Total Exercises</h5>
-			</div>
-			<div class-"col-xs-12">
-				<% @total_reps.each do |total| %>
-					<span><%= total.reps_counted += total.reps_counted %></span>
-				<% end %>
-				<h5>Total Reps</h5>
-			</div>
-			<div class-"col-xs-12">
-				<% @total_weight.each do |total| %>
-					<span><%= total.weight_lb += total.weight_lb %></span>
-				<% end %>
-				<h5>Total Reps</h5>
-			</div>
+	<div class="stats-container col-xs-8">
+		<div class-"col-xs-12">
+			<span><%= @total_exercises %></span>
+			<h5>Total Exercises</h5>
+		</div>
+		<div class-"col-xs-12">
+			<% @total_reps.each do |total| %>
+				<span><%= total.reps_counted += total.reps_counted %></span>
+			<% end %>
+			<h5>Total Reps</h5>
+		</div>
+		<div class-"col-xs-12">
+			<% @total_weight.each do |total| %>
+				<span><%= total.weight_lb += total.weight_lb %></span>
+			<% end %>
+			<h5>Total Reps</h5>
 		</div>
 	</div>
 </div>
