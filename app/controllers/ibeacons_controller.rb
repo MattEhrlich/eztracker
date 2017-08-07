@@ -4,6 +4,9 @@ class IbeaconsController < ApplicationController
 	require './lib/rep.rb'
    require './lib/rotate.rb'
 	def index 
+		@total_exercises = Ibeacon.count
+		@total_reps = Ibeacon.all
+		@total_weight = Ibeacon.all
       
       respond_to do |format|
       format.html {
