@@ -55,7 +55,7 @@ function formatAMPM(date) {
                 console.log("poo")
                 var date = new Date(curr.created_at)
                 console.log(date)
-                sain += "<div class='workout-card col-xs-12 col-sm-6 pull-left'>"
+                sain += "<div class='workout-card col-xs-12 pull-left'>"
                 sain += "<span class='text-center'><span> Workout: </span><span class='category-result'>" + curr.exercise_name.toString() + "</span></h3><hr />"
                 sain += "<span><i class='glyphicon glyphicon-flash'></i><span> Reps: </span><span class='category-result'>" + curr.reps_counted.toString() + "</span></span><br class='clr' />"
                 sain += "<span><i class='glyphicon glyphicon-fire'></i><span> Calories Burned: </span><span class='category-result'>"+ (curr.reps_counted*0.5).toString() + "</span></span><br class='clr' />"
@@ -77,7 +77,7 @@ function formatAMPM(date) {
                 curr = data[i]
                 var date = new Date(curr.created_at)
                 console.log(date)
-                sain += "<div class='workout-card col-xs-12 col-sm-6 pull-left'>"
+                sain += "<div class='workout-card col-xs-12 pull-left'>"
                 sain += "<span class='text-center'><span> Workout: </span><span class='category-result'>" + curr.exercise_name.toString() + "</span></h3><hr />"
                 sain += "<span><i class='glyphicon glyphicon-flash'></i><span> Reps: </span><span class='category-result'>" + curr.reps_counted.toString() + "</span></span><br class='clr' />"
                 sain += "<span><i class='glyphicon glyphicon-fire'></i><span> Calories Burned: </span><span class='category-result'>"+ (curr.reps_counted*0.5).toString() + "</span></span><br class='clr' />"
