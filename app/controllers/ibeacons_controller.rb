@@ -6,7 +6,7 @@ class IbeaconsController < ApplicationController
 	def index 
 		@total_exercises = Ibeacon.count
 		@total_reps = Ibeacon.all
-		@reps = Ibeacon.reps_counted
+		@reps = Ibeacon.all.reps_counted
 		@total_weight = @reps * 20
       
       p "hello"
