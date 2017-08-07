@@ -8,6 +8,7 @@ class IbeaconsController < ApplicationController
 		@total_reps = Ibeacon.all
 		@total_weight = Ibeacon.all
       
+      p "hello"
       respond_to do |format|
       format.html {
         @data = Ibeacon.all
