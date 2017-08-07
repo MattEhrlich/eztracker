@@ -12,7 +12,9 @@
 			<% end %>
 		</div>
 		<div class-"col-xs-12">
-			<%= @total_weight %>
+			<% @total_weight.each do |total| %>
+				<%= total.weight_lb + total.weight_lb %>
+			<% end %>
 		</div>
 	</div>
 </div>
