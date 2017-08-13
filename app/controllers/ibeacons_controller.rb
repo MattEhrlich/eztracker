@@ -1,5 +1,6 @@
 class IbeaconsController < ApplicationController
 	skip_before_filter  :verify_authenticity_token
+   # Ibeacon.create(exercise_name: "Curl", reps_counted: 11, weight_lb: 25)
 	require './lib/algorithm.rb'
 	require './lib/rep.rb'
    require './lib/rotate.rb'
