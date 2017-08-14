@@ -6,6 +6,7 @@ class IbeaconsController < ApplicationController
    require './lib/rotate.rb'
 	def index 
 		@disable_nav = true
+		
       respond_to do |format|
       format.html {
         @total_exercises = Ibeacon.count  
