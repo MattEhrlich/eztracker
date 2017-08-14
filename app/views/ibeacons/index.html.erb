@@ -6,23 +6,28 @@
 	<div id="base" class="card-container col-xs-6">
 	</div>
 	<div class="stats-container col-xs-6 text-center center-block">
-		<div class-"col-xs-12">
-			<h5>Total Exercises</h5>
-            <span id="exercises"><%= @total_exercises %></span>
+		<div class-"stat-bubble col-xs-12">
+			<i class="glyphicon glyphicon-flash"></i>
+			<div class="stat-info text-center">
+				<h3><%= @total_exercises %></h3>
+				<h5 class="stat-label">Today's Exercises</h5>
+			</div>
 		</div>
-		<div class-"col-xs-12">
-			<h5>Total Reps</h5>
-            <span id="reps"><%= @total_reps %></span>
+		<div class-"stat-bubble col-xs-12">
+			<i class="glyphicon glyphicon-fire"></i>
+			<div class="stat-info text-center">
+				<h3><%= @total_reps %></h3>
+				<h5 class="stat-label">Today's Reps</h5>
+			</div>
 		</div>
-
-        <div class-"col-xs-12">
-            <h5>Total Weight</h5>
-            <span id="weight"><%= @total_weight %></span>
-        </div>
-
-        
-
-	</div>
+      <div class-"stat-bubble col-xs-12">
+			<i class="glyphicon glyphicon-heart"></i>
+			<div class="stat-info text-center">
+				<h3><%= @total_weight %></h3>
+				<h5 class="stat-label">Weight Lifted</h5>
+			</div>
+       </div>
+   </div>
 </div>
 <script>
 var total = 0;

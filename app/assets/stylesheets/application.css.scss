@@ -465,6 +465,47 @@ hr.short-hr {
 	border: 2px solid #DBA606;
 }
 
+	.stat-bubble {
+		margin-top: 20px;
+	}
+	
+	.stat-bubble .glyphicon-flash {
+		font-size: 52px;
+		color: #e25822;
+		border: 2px solid #243242;
+		border-radius: 50%;
+		width: 140px;
+		height: 140px;
+		text-align: center;
+		vertical-align: middle;
+		line-height: 140px;
+	}
+	
+	.stat-bubble .fa-support {
+		font-size: 68px;
+		color: #2E9DF7;
+		border: 2px solid #243242;
+		border-radius: 50%;
+		width: 140px;
+		height: 140px;
+		text-align: center;
+		vertical-align: middle;
+		line-height: 140px;
+	}
+	
+	.stat-bubble .fa-scale-bathroom {
+		font-size: 54px;
+		color: #F9B03C;
+		border: 2px solid #243242;
+		border-radius: 50%;
+		width: 140px;
+		height: 140px;
+		text-align: center;
+		vertical-align: middle;
+		line-height: 140px;
+	}
+
+
 /* ==== End Simple Calendar ==== */
 
 @media (max-width: 768px) {
