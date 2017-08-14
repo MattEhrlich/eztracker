@@ -7,24 +7,25 @@
 	</div>
 	<div class="stats-container col-xs-6 text-center center-block">
 		<div class-"col-xs-12">
-			<span><%= @total_exercises %></span>
 			<h5>Total Exercises</h5>
+            <span id="exercises"><%= @total_exercises %></span>
 		</div>
 		<div class-"col-xs-12">
-			<% @total_reps.each do |total| %>
-				<span><%= total.reps_counted += total.reps_counted %></span>
-			<% end %>
 			<h5>Total Reps</h5>
+            <span id="reps"><%= @total_reps %></span>
 		</div>
-		<div class-"col-xs-12">
-			<% @total_weight.each do |total| %>
-				<span><%= total.weight_lb += total.weight_lb %></span>
-			<% end %>
-			<h5>Total Reps</h5>
-		</div>
+
+        <div class-"col-xs-12">
+            <h5>Total Weight</h5>
+            <span id="weight"><%= @total_weight %></span>
+        </div>
+
+        
+
 	</div>
 </div>
 <script>
+var total = 0;
 function formatAMPM(date) {
 
   var monthNames = ["January", "February", "March", "April", "May", "June",
@@ -46,45 +47,65 @@ function formatAMPM(date) {
 
 
        $.ajax({ url: "/ibeacons", success: function(data) {
+            curr = data[0]
+            if (curr == null){
+                return  
+            }
             var main = document.getElementById("base")
             sain = ""
-            for (var i = 0;i < data.length; i++){
-                curr = data[i]
-                console.log("poo")
-                var date = new Date(curr.created_at)
-                console.log(date)
-                sain += "<div class='workout-card col-xs-12 pull-left'>"
-                sain += "<span class='text-center'><span> Workout: </span><span class='category-result'>" + curr.exercise_name.toString() + "</span></h3><hr />"
-                sain += "<span><i class='glyphicon glyphicon-flash'></i><span> Reps: </span><span class='category-result'>" + curr.reps_counted.toString() + "</span></span><br class='clr' />"
-                sain += "<span><i class='glyphicon glyphicon-fire'></i><span> Calories Burned: </span><span class='category-result'>"+ (curr.reps_counted*0.5).toString() + "</span></span><br class='clr' />"
-                sain += "<span><i class='glyphicon glyphicon-heart'></i><span> Total Weight Lifted: </span><span class='category-result'>" + curr.weight_lb.toString() + "</span></span><br class='clr' />"
-                sain +="<hr />"
-                sain += "<span>"+ formatAMPM(date).toString() +"</span>"
-                sain += "</div>"
-            }
-            main.innerHTML = sain
+            var date = new Date(curr.created_at)
+            sain += "<div class='workout-card col-xs-12 pull-left'>"
+            sain += "<span class='text-center'><span> Workout: </span><span class='category-result'>" + curr.exercise_name.toString() + "</span></h3><hr />"
+            sain += "<span><i class='glyphicon glyphicon-flash'></i><span> Reps: </span><span class='category-result'>" + curr.reps_counted.toString() + "</span></span><br class='clr' />"
+            sain += "<span><i class='glyphicon glyphicon-fire'></i><span> Calories Burned: </span><span class='category-result'>"+ (curr.reps_counted*0.5).toString() + "</span></span><br class='clr' />"
+            sain += "<span><i class='glyphicon glyphicon-heart'></i><span> Total Weight Lifted: </span><span class='category-result'>" + curr.weight_lb.toString() + "</span></span><br class='clr' />"
+            sain +="<hr />"
+            sain += "<span>"+ formatAMPM(date).toString() +"</span>"
+            sain += "</div>"
+            main.innerHTML = sain;
        }, dataType: "json"});
 
 
 (function poll() {
    setTimeout(function() {
        $.ajax({ url: "/ibeacons", success: function(data) {
+            curr = data[0]
+            if (curr == null){
+                var main = document.getElementById("base")
+                main.innerHTML = "";
+                var exercises = document.getElementById("exercises");
+                var reps = document.getElementById("reps");
+                var weight = document.getElementById("weight");
+                exercises.innerHTML = (0).toString();
+                reps.innerHTML = (0).toString();
+                weight.innerHTML = (0).toString();
+                return  
+            }
             var main = document.getElementById("base")
             sain = ""
-            for (var i = 0;i < data.length; i++){
-                curr = data[i]
-                var date = new Date(curr.created_at)
-                console.log(date)
-                sain += "<div class='workout-card col-xs-12 pull-left'>"
-                sain += "<span class='text-center'><span> Workout: </span><span class='category-result'>" + curr.exercise_name.toString() + "</span></h3><hr />"
-                sain += "<span><i class='glyphicon glyphicon-flash'></i><span> Reps: </span><span class='category-result'>" + curr.reps_counted.toString() + "</span></span><br class='clr' />"
-                sain += "<span><i class='glyphicon glyphicon-fire'></i><span> Calories Burned: </span><span class='category-result'>"+ (curr.reps_counted*0.5).toString() + "</span></span><br class='clr' />"
-                sain += "<span><i class='glyphicon glyphicon-heart'></i><span> Total Weight Lifted: </span><span class='category-result'>" + curr.weight_lb.toString() + "</span></span><br class='clr' />"
-                sain +="<hr />"
-                sain += "<span>"+ formatAMPM(date).toString() +"</span>"
-                sain += "</div>"
+            var date = new Date(curr.created_at)
+            sain += "<div class='workout-card col-xs-12 pull-left'>"
+            sain += "<span class='text-center'><span> Workout: </span><span class='category-result'>" + curr.exercise_name.toString() + "</span></h3><hr />"
+            sain += "<span><i class='glyphicon glyphicon-flash'></i><span> Reps: </span><span class='category-result'>" + curr.reps_counted.toString() + "</span></span><br class='clr' />"
+            sain += "<span><i class='glyphicon glyphicon-fire'></i><span> Calories Burned: </span><span class='category-result'>"+ (curr.reps_counted*0.5).toString() + "</span></span><br class='clr' />"
+            sain += "<span><i class='glyphicon glyphicon-heart'></i><span> Total Weight Lifted: </span><span class='category-result'>" + curr.weight_lb.toString() + "</span></span><br class='clr' />"
+            sain +="<hr />"
+            sain += "<span>"+ formatAMPM(date).toString() +"</span>"
+            sain += "</div>"
+            main.innerHTML = sain;
+
+
+            var exercises = document.getElementById("exercises");
+            var reps = document.getElementById("reps");
+            var weight = document.getElementById("weight");
+            if(parseInt(exercises.innerHTML) != data[1]){
+              exercises.innerHTML = (parseInt(exercises.innerHTML) + 1).toString();
+              reps.innerHTML = (parseInt(reps.innerHTML) + curr.reps_counted).toString();
+              weight.innerHTML = (parseInt(weight.innerHTML) + curr.weight_lb).toString();
+
             }
-            main.innerHTML = sain
+            
+
        }, dataType: "json", complete: poll });
     }, 4000);
 })();
