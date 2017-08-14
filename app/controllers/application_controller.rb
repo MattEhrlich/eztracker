@@ -4,5 +4,9 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
    	dashboard_path(current_user)
   end
+  
+  def disable_nav
+	  @disable_nav = true
+  end	  
 
 end

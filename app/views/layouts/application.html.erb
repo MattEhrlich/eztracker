@@ -11,6 +11,7 @@
   </head>
 
   <body>
+	<% if ! @disable_nav %>
 	  <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -39,6 +40,7 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+<% end %>
 
 	<% if notice.present? %>
 	  	 <p id="alert-message" class="alert alert-info"><%= notice %></p>
