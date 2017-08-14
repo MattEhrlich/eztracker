@@ -10,7 +10,7 @@ class IbeaconsController < ApplicationController
       format.html {
         @total_exercises = Ibeacon.count  
         @total_reps = Ibeacon.all.sum(:reps_counted)
-        @total_weight = Ibeacon.all.sum(:weight_lb)*20 
+        @total_weight = Ibeacon.all.sum(:weight_lb) 
         @data = Ibeacon.all
       }
       format.json { 
