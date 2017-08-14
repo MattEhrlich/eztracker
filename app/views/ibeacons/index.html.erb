@@ -59,8 +59,6 @@ function formatAMPM(date) {
             var main = document.getElementById("base")
             sain = ""
             var date = new Date(curr.created_at)
-            sain += "<h3 class='workout-card-explainer' style='font-family: 'Ubuntu'; font-style: italic;'>Most Recent Exercise</h3>"
-            sain += "<br class='clr' />"
             sain += "<div class='workout-card col-xs-12 pull-left'>"
             sain += "<span class='text-center'><span> Workout: </span><span class='category-result'>" + curr.exercise_name.toString() + "</span></h3><hr />"
             sain += "<span><i class='glyphicon glyphicon-flash'></i><span> Reps: </span><span class='category-result'>" + curr.reps_counted.toString() + "</span></span><br class='clr' />"
