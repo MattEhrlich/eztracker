@@ -465,11 +465,11 @@ hr.short-hr {
 	border: 2px solid #DBA606;
 }
 
-	.stat-bubble {
+	.stats-container .stat-bubble {
 		margin-top: 20px;
 	}
 	
-	.stat-bubble .glyphicon-flash {
+	.stats-container .stat-bubble .glyphicon-flash {
 		font-size: 52px;
 		color: #e0ca26;
 		border: 2px solid #e0ca26;
@@ -481,7 +481,7 @@ hr.short-hr {
 		line-height: 140px;
 	}
 	
-	.stat-bubble .glyphicon-fire {
+	.stats-container .stat-bubble .glyphicon-fire {
 		font-size: 68px;
 		color: #ff5d16;
 		border: 2px solid #ff5d16;
@@ -493,7 +493,7 @@ hr.short-hr {
 		line-height: 140px;
 	}
 	
-	.stat-bubble .glyphicon-heart {
+	.stats-container .stat-bubble .glyphicon-heart {
 		font-size: 54px;
 		color: red;
 		border: 2px solid red;
