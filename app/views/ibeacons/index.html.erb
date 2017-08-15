@@ -22,6 +22,7 @@
 				<span id="reps"><%= @total_reps %></span>
 			</div>
 		</div>
+
       <div class-"stat-bubble col-xs-12">
 			<i class="fa fa-dumbbell"></i>
 			<div class="stat-info text-center">
@@ -37,6 +38,34 @@
 </div>
 <script>
 var total = 0;
+
+function zero_add(n){
+  if (parseInt(n) < 10 && (parseInt(n) > 0)){
+    return '0' + n;
+  }
+  else{
+    return n;
+  }
+
+  
+}
+
+function new_format(date) {
+
+  var monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
+  date.setTime( date.getTime() + date.getTimezoneOffset()*60*1000 )
+  var hours = zero_add(date.getHours());
+  var minutes = zero_add(date.getMinutes());
+  var days = zero_add(date.getDate());
+  var months = date.getMonth();
+  var secs = zero_add(date.getSeconds());
+  console.log(hours,date.getHours() )
+  var strTime = monthNames[months] + ' ' + days + ' - ' + hours + ':' + minutes + ':'+ secs;
+  return strTime;
+}
+
 function formatAMPM(date) {
 
   var monthNames = ["January", "February", "March", "April", "May", "June",
@@ -71,9 +100,10 @@ function formatAMPM(date) {
             sain += "<span class='text-center'><span> Exercise: </span><span class='category-result'>" + curr.exercise_name.toString() + "</span></h3><hr />"
             sain += "<span><i class='fa fa-graphic-eq'></i><span> Reps: </span><span class='category-result'>" + curr.reps_counted.toString() + "</span></span><br class='clr' />"
             sain += "<span><i class='glyphicon glyphicon-fire'></i><span> Calories Burned: </span><span class='category-result'>"+ (curr.reps_counted*0.5).toString() + "</span></span><br class='clr' />"
-            sain += "<span><i class='fa fa-dumbbell'></i><span> Total Weight Lifted: </span><span class='category-result'>" + curr.weight_lb.toString() + " kg" + "</span></span><br class='clr' />"
+            sain += "<span><i class='fa fa-dumbbell'></i><span> Weight: </span><span class='category-result'>" + curr.weight_lb.toString() + " kg" + "</span></span><br class='clr' />"
+            sain += "<span><i class='fa fa-dumbbell'></i><span> Total Weight Lifted: </span><span class='category-result'>" + curr.reps_counted*curr.weight_lb.toString() + " kg" + "</span></span><br class='clr' />"
             sain +="<hr />"
-            sain += "<span>"+ formatAMPM(date).toString() +"</span>"
+            sain += "<span>"+ new_format(date).toString() +"</span>"
             sain += "</div>"
             main.innerHTML = sain;
        }, dataType: "json"});
@@ -103,9 +133,10 @@ function formatAMPM(date) {
             sain += "<span class='text-center'><span> Exercise: </span><span class='category-result'>" + curr.exercise_name.toString() + "</span></h3><hr />"
             sain += "<span><i class='fa fa-graphic-eq'></i><span> Reps: </span><span class='category-result'>" + curr.reps_counted.toString() + "</span></span><br class='clr' />"
             sain += "<span><i class='glyphicon glyphicon-fire'></i><span> Calories Burned: </span><span class='category-result'>"+ (curr.reps_counted*0.5).toString() + "</span></span><br class='clr' />"
-            sain += "<span><i class='fa fa-dumbbell'></i><span> Total Weight Lifted: </span><span class='category-result'>" + curr.weight_lb.toString() + " kg" + "</span></span><br class='clr' />"
+            sain += "<span><i class='fa fa-dumbbell'></i><span> Weight: </span><span class='category-result'>" + curr.weight_lb.toString() + " kg" + "</span></span><br class='clr' />"
+            sain += "<span><i class='fa fa-dumbbell'></i><span> Total Weight Lifted: </span><span class='category-result'>" + curr.reps_counted*curr.weight_lb.toString() + " kg" + "</span></span><br class='clr' />"
             sain +="<hr />"
-            sain += "<span>"+ formatAMPM(date).toString() +"</span>"
+            sain += "<span>"+ new_format(date).toString() +"</span>"
             sain += "</div>"
             main.innerHTML = sain;
 
