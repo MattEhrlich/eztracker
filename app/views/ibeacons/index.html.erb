@@ -8,7 +8,7 @@
 		</div>
 		<br class="clr" />
 		<div class="set-totals text-center col-xs-12">
-			<span class="col-xs-12"><span class="col-xs-12 col-sm-4">Total Curls: <%= @total_curls %></span><span class="col-xs-12 col-sm-4">Total Rows: <%= @total_rows %><span class="col-xs-12 col-sm-4">Total Presses: <%= @total_presses %></span></span></span>
+			<span class="col-xs-12"><span class="pull-left">Total Curls: <%= @total_curls %></span><span class="col-xs-12 col-sm-4">Total Rows: <%= @total_rows %><span class="pull-right">Total Presses: <%= @total_presses %></span></span></span>
 		</div>
 	</div>
 	<div class="stats-container col-xs-6 text-center center-block">
@@ -37,7 +37,7 @@
 </div>
 <br class="clr" />
 <div class="col-xs-12 text-center">
-	<h5 style="font-family: 'Ubuntu';">© EZ TRACKR / © EZTRACK Fitness</h5>
+	<h5 style="font-family: 'Ubuntu';">© EZ TRACKR / © EZTRACK Fitness <% if user_signed_in? %><%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "log-out-btn" %><% end %></h5>
 </div>
 <script>
 var total = 0;
