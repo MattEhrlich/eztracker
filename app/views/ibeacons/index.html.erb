@@ -5,6 +5,11 @@
 <div class="display-holder col-xs-12">
 	<div id="base" class="card-container col-xs-6">
 	</div>
+	<br class="clr" />
+	<div class="set-totals text-center col-xs-6">
+		<span><span>Total Curls: <%= @total_curls %></span><span>Total Rows: <%= @total_rows %><span>Total Presses: <%= @total_presses %></span></span></span>
+	</div>
+
 	<div class="stats-container col-xs-6 text-center center-block">
 		<div class-"stat-bubble col-xs-12">
 			<i class="fa fa-graph-bar"></i>
@@ -30,10 +35,6 @@
    </div>
 </div>
 <br class="clr" />
-<div class="set-totals text-center col-xs-6 col-xs-offset-3">
-	<span><span>Total Curls: <%= @total_curls %></span><span>Total Rows: <%= @total_rows %><span>Total Presses: <%= @total_presses %></span></span></span>
-</div>
-<br class="clr" />
 <div class="col-xs-12 text-center">
 	<h5 style="font-family: 'Ubuntu';">© EZ TRACKR / © EZTRACK Fitness</h5>
 </div>
@@ -54,7 +55,7 @@ function formatAMPM(date) {
   hours = hours % 12;
   hours = hours ? hours : 12; // the hour '0' should be '12'
   minutes = minutes < 10 ? '0'+minutes : minutes;
-  var strTime = monthNames[months] + ' ' + days + ' - ' + hours + ':' + minutes + ":" + ' ' + ampm;
+  var strTime = monthNames[months] + ' ' + days + ' - ' + hours + ':' + minutes + ' ' + ampm;
   return strTime;
 }
 
