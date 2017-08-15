@@ -21,6 +21,10 @@
 	 font-weight: 900;
  }
  
+ .eztrackr-logo {
+	 width: 100px;
+ }
+ 
  .home-page_container {
 	 position: relative;
 	 
@@ -471,7 +475,7 @@ hr.short-hr {
 		margin-top: 20px;
 	}
 	
-	 i.glyphicon.glyphicon-flash {
+	 i.fa.fa-graphic-eq {
 		font-size: 46px;
 		color: #e0ca26;
 		border: 2px solid #e0ca26;
@@ -495,7 +499,7 @@ hr.short-hr {
 		line-height: 140px;
 	}
 	
-	 i.glyphicon.glyphicon-heart {
+	 i.fa.fa-dumbbell {
 		font-size: 46px;
 		color: red;
 		border: 2px solid red;
@@ -510,7 +514,7 @@ hr.short-hr {
 }
 
 .workout-card {
-	margin-top: 5%;
+	margin-top: 3%;
 	margin-left: 5%;
 	border: 1px solid rgba(166, 166, 166, 0.22);
 	padding: 10px;

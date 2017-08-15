@@ -5,7 +5,6 @@ class IbeaconsController < ApplicationController
 	require './lib/rep.rb'
    require './lib/rotate.rb'
 	def index 
-		@disable_nav = true
 		
       respond_to do |format|
       format.html {
