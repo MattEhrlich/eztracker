@@ -26,12 +26,12 @@
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse text-center" id="bs-example-navbar-collapse-1">
+	    <span class="workout-overview">Workout Overview</span>
 	   <div class="pull-right main-buttons">
 		   <% if ! user_signed_in? %>
 	   		<%= link_to "Request a demo", "", class:"sign-up-btn" %>
 				<%= link_to "Log In", new_user_session_path, class:"log-in-btn" %>
 			<% else %>
-				<span class="workout-overview">Workout Overview</span>
 				<%= image_tag "websummit.png", class: "summit-logo" %>
 			<% end %>
 		</div>	  
