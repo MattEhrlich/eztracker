@@ -2,14 +2,15 @@
 	<h2 style="font-family: 'Ubuntu';">Workout Overview</h2>
 </div>
 <br class="clr" /><br />
-<div class="display-holder col-xs-12">
-	<div id="base" class="card-container col-xs-6">
+<div class="display-screen">
+	<div class="display-holder col-xs-6">
+		<div id="base" class="card-container col-xs-12">
+		</div>
+		<br class="clr" />
+		<div class="set-totals text-center col-xs-12">
+			<span><span>Total Curls: <%= @total_curls %></span><span>Total Rows: <%= @total_rows %><span>Total Presses: <%= @total_presses %></span></span></span>
+		</div>
 	</div>
-	<br class="clr" />
-	<div class="set-totals text-center col-xs-6">
-		<span><span>Total Curls: <%= @total_curls %></span><span>Total Rows: <%= @total_rows %><span>Total Presses: <%= @total_presses %></span></span></span>
-	</div>
-
 	<div class="stats-container col-xs-6 text-center center-block">
 		<div class-"stat-bubble col-xs-12">
 			<i class="fa fa-graph-bar"></i>
@@ -129,4 +130,16 @@ function formatAMPM(date) {
 })();
 </script>
 
-<!-- <button style=" text-align:center;margin:30px 0;"><%= link_to 'Press Me', ibeacons_path, :method => "POST"%></button> -->
+<!-- <button style=" text-align:center;margin:30px 0;"><%= link_to 'Press Me', ibeacons_path, :method => "POST"%></button> 
+	
+	
+	
+	
+	
+	
+		<br class="clr" />
+	<div class="set-totals text-center col-xs-6">
+		<span><span>Total Curls: <%= @total_curls %></span><span>Total Rows: <%= @total_rows %><span>Total Presses: <%= @total_presses %></span></span></span>
+	</div>
+
+-->
