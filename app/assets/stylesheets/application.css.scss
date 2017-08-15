@@ -22,7 +22,7 @@
  }
  
  .placeholder-logo {
- 	 width: 100px;
+ 	 width: 200px;
  }
  
  .home-page_container {
@@ -215,7 +215,7 @@
 	color: #9325d7;
 }
 
-.workout-card .glyphicon-heart {
+.workout-card .fa-dumbbell {
 	color: red;
 }
 
@@ -223,7 +223,7 @@
 	color: #ff5d16;
 }
 
-.workout-card .glyphicon-flash {
+.workout-card .fa-graphic-eq {
 	color: #e0ca26;
 }
 
@@ -516,10 +516,10 @@ hr.short-hr {
 .workout-card {
 	margin-top: 3%;
 	margin-left: 5%;
-	border: 1px solid rgba(166, 166, 166, 0.22);
+	border: 1px solid #FFC001;
 	padding: 10px;
 	border-radius: 5px;
-	box-shadow: 0px 1px 2px 0px rgba(166, 166, 166, 0.22);
+	box-shadow: 0px 3px 6px 0px rgba(166, 166, 166, 0.62);
 }
 
 .workout-card-explainer {
