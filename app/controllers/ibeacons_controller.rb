@@ -13,6 +13,8 @@ class IbeaconsController < ApplicationController
         @total_reps = Ibeacon.all.sum(:reps_counted)
         @total_weight = Ibeacon.all.sum(:weight_lb) 
         @total_curls = Ibeacon.all.where(exercise_name: "Curl").count
+        @total_rows = Ibeacon.all.where(exercise_name: "Row").count
+        @total_presses = Ibeacon.all.where(exercise_name: "Shoulder Press").count
         @data = Ibeacon.all
       }
       format.json { 
