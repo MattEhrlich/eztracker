@@ -23,6 +23,9 @@
         <span class="icon-bar"></span>
       </button>
 		<%= image_tag "EZTRACKR1-1.PNG", class: "placeholder-logo" %>
+		<% if user_signed_in? %>
+			<h4 class="text-center">Workout Overview</h4>
+		<% end %>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse text-center" id="bs-example-navbar-collapse-1">
