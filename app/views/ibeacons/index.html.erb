@@ -4,7 +4,7 @@
 		</div>
 		<br class="clr" />
 		<div class="set-totals text-center col-xs-12">
-			<span class="text-center"><span class="col-xs-12 col-sm-4"><h3><%= @total_curls %></h3><hr /><p>Total Sets<br>Curls</p></span><span class="col-xs-12 col-sm-4"><h3><%= @total_rows %></h3><hr /><p>Total Sets<br>Rows</p></span><span class="col-xs-12 col-sm-4"><h3><%= @total_presses %></h3><hr /><p>Total Sets<br>Shoulder Presses</p></span></span>
+			<span class="text-center"><span class="col-xs-12 col-sm-4"><h3 id="Curl"><%= @total_curls %></h3><hr /><p>Total Sets<br>Curls</p></span><span class="col-xs-12 col-sm-4"><h3 id="Row"><%= @total_rows %></h3><hr /><p>Total Sets<br>Rows</p></span><span class="col-xs-12 col-sm-4"><h3 id="Shoulder Press"><%= @total_presses %></h3><hr /><p>Total Sets<br>Shoulder Presses</p></span></span>
 		</div>
 	</div>
 	<div class="stats-container col-xs-6 text-center center-block">
@@ -142,10 +142,12 @@ function formatAMPM(date) {
             var exercises = document.getElementById("exercises");
             var reps = document.getElementById("reps");
             var weight = document.getElementById("weight");
+            var bottom = document.getElementById(curr.exercise_name)
             if(parseInt(exercises.innerHTML) != data[1]){
               exercises.innerHTML = (parseInt(exercises.innerHTML) + 1).toString();
               reps.innerHTML = (parseInt(reps.innerHTML) + curr.reps_counted).toString();
               weight.innerHTML = (parseInt(weight.innerHTML) + curr.weight_lb).toString();
+              bottom.innerHTML = (parseInt(bottom.innerHTML) + 1).toString();
 
             }
             
