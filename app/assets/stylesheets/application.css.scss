@@ -524,12 +524,14 @@ hr.short-hr {
 	border: 2px solid #31b744;
 	padding: 10px;
 	border-radius: 5px;
+	width: 610px;
 	box-shadow: 0px 4px 8px 0px rgba(166, 166, 166, 1);
 }
 
 .set-totals {
 	margin-top: 4%;
 	margin-left: 5%;
+	width: 610px;
 	border: 2px solid #243242;
 	padding: 10px;
 	border-radius: 5px;
@@ -559,6 +561,10 @@ body {
 	font-size: 20px;
 	font-family: 'Saira Semi Condensed', sans-serif;
 	font-weight: 400;
+}
+
+.fa fa-graph-bar {
+	color: #ff5d16;
 }
 /* ==== End Simple Calendar ==== */
 

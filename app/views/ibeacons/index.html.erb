@@ -3,7 +3,7 @@
 		<div id="base" class="card-container col-xs-12">
 		</div>
 		<br class="clr" />
-		<div class="set-totals text-center col-xs-10">
+		<div class="set-totals text-center col-xs-12">
 			<span class="text-center"><span class="col-xs-12 col-sm-4"><h3 id="Curl"><%= @total_curls %></h3><hr /><p>Total Sets<br>Curls</p></span><span class="col-xs-12 col-sm-4"><h3 id="Row"><%= @total_rows %></h3><hr /><p>Total Sets<br>Rows</p></span><span class="col-xs-12 col-sm-4"><h3 id="Shoulder Press"><%= @total_presses %></h3><hr /><p>Total Sets<br>Shoulder Presses</p></span></span>
 		</div>
 	</div>
@@ -11,23 +11,20 @@
 		<div class-"stat-bubble col-xs-12">
 			<i class="fa fa-graph-bar"></i>
 			<div class="stat-info text-center">
-				<h4>Total Exercises</h4>
-				<span id="exercises"><%= @total_exercises %></span>
+				<h4>Total Exercises: <span id="exercises"><%= @total_exercises %></span></h4>
 			</div>
 		</div>
 		<div class-"stat-bubble col-xs-12">
 			<i class="fa fa-graphic-eq"></i>
 			<div class="stat-info text-center">
-				<h4>Total Reps</h4>
-				<span id="reps"><%= @total_reps %></span>
+				<h4>Total Reps: <span id="reps"><%= @total_reps %></span></h4>
 			</div>
 		</div>
 
       <div class-"stat-bubble col-xs-12">
 			<i class="fa fa-dumbbell"></i>
 			<div class="stat-info text-center">
-				<h4>Total Weight Lifted</h4>
-				<span id="weight"><%= @total_weight %> Kg.</span>
+				<h4>Total Weight Lifted: <span id="weight"><%= @total_weight %> Kg.</span></h4>
 			</div>
        </div>
    </div>
