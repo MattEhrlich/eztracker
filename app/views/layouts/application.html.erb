@@ -27,6 +27,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse text-center" id="bs-example-navbar-collapse-1">
 	    <span class="workout-overview">Workout Overview</span>
+	    <% if user_signed_in?%><h5><%= current_user.email %></h5><% end %>
 	   <div class="pull-right main-buttons">
 		   <% if ! user_signed_in? %>
 	   		<%= link_to "Request a demo", "", class:"sign-up-btn" %>
