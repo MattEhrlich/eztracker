@@ -26,7 +26,7 @@
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse text-center" id="bs-example-navbar-collapse-1">
-	    <span class="workout-overview">Workout Overview<% if user_signed_in?%> <br /> <span class="current-username"><%= current_user.email %></span><% end %></span>
+	    <span class="workout-overview">Workout Overview<% if user_signed_in?%> - <span class="current-username"><%= current_user.email %></span><% end %></span>
 	    
 	   <div class="pull-right main-buttons">
 		   <% if ! user_signed_in? %>
