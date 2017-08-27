@@ -1,3 +1,6 @@
+
+
+
 <div class="display-screen">
 	<div class="display-holder col-xs-6">
 		<div id="base" class="card-container col-xs-12">
@@ -133,7 +136,7 @@ function formatAMPM(date) {
             sain +="<hr />"
             sain += "<span>"+ new_format(date).toString() +"</span>"
             sain += "</div>"
-            main.innerHTML = sain;
+            
 
 
             var exercises = document.getElementById("exercises");
@@ -145,12 +148,15 @@ function formatAMPM(date) {
               reps.innerHTML = (parseInt(reps.innerHTML) + curr.reps_counted).toString();
               weight.innerHTML = (parseInt(weight.innerHTML) + curr.weight_lb).toString();
               bottom.innerHTML = (parseInt(bottom.innerHTML) + 1).toString();
-
+              sain = "<h2 class='text-center workout-card-explainer' style='font-weight: 700;'>Most Recent Exercise</h2>";
+              sain += "<br class='clr' />";
+              sain += "<span> <p class='saving'>Loading<span>.</span><span>.</span><span>.</span></p>";
+              sain += " <div class='loader'>  </div> </span";
             }
-            
+            main.innerHTML = sain;
 
        }, dataType: "json", complete: poll });
-    }, 4000);
+    }, 2500);
 })();
 </script>
 
