@@ -1,0 +1,2 @@
+class Spinner < ApplicationRecord
+end
