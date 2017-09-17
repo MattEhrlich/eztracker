@@ -4,7 +4,7 @@ class IbeaconsController < ApplicationController
    # Ibeacon.create(exercise_name: "Row", reps_counted: 8, weight_lb: 160)
 	require './lib/algorithm.rb'
 	require './lib/rep.rb'
-   require './lib/rotate.rb'
+  require './lib/rotate.rb'
 	def index 
 		
       respond_to do |format|
