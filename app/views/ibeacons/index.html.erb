@@ -1,11 +1,11 @@
 
-<div id="spinner_check" hidden>0</div>
+
 
 <div class="display-screen">
 	<div class="display-holder col-xs-6">
     <div id="status_div" class="card-container col-xs-12">
         <br class='clr' />
-        <span id="status"> <p class='saving'>Searching for an Exercise<span>.</span><span>.</span><span>.</span></p>
+        <span id="status"> <p class='saving'>Searching For Workout<span>.</span><span>.</span><span>.</span></p>
         <div class='loader'>  </div> </span>
     </div>
 
@@ -148,31 +148,24 @@ function formatAMPM(date) {
             var exercises = document.getElementById("exercises");
             var reps = document.getElementById("reps");
             var weight = document.getElementById("weight");
-            var bottom = document.getElementById(curr.exercise_name);
+            var bottom = document.getElementById(curr.exercise_name)
             var status = document.getElementById("status");
-            var check = document.getElementById("spinner_check");
             if(parseInt(exercises.innerHTML) != data[1]){
               exercises.innerHTML = (parseInt(exercises.innerHTML) + 1).toString();
               reps.innerHTML = (parseInt(reps.innerHTML) + curr.reps_counted).toString();
               weight.innerHTML = (parseInt(weight.innerHTML) + curr.weight_lb).toString();
               bottom.innerHTML = (parseInt(bottom.innerHTML) + 1).toString();
-              check.innerHTML = "0";
-              status.innerHTML = "<p class='saving'>Exercise Complete<span>.</span><span>.</span><span>.</span></p><div class='loader_frozen'></div>";
+              
+              status.innerHTML = "<p class='saving'>Completed a Workout<span>.</span><span>.</span><span>.</span></p><div class='loader_frozen'></div>";
             }
 
-            else if( status.innerHTML.indexOf("Exercise Complete") >= 0){
-              check.innerHTML = "0";
-              status.innerHTML = "<p class='saving'>Searching for an Exercise<span>.</span><span>.</span><span>.</span></p> <div class='loader'></div> ";
-            }
-
-            else if( data[2] == 1 && parseInt(check.innerHTML) == 0 ){
-              check.innerHTML = "1";
-              status.innerHTML = "<p class='saving'>Tracking<span>.</span><span>.</span><span>.</span></p> <div class='loader_semi_frozen'></div> ";
-
+            else if( status.innerHTML.indexOf("Completed a Workout") >= 0){
+              status.innerHTML = "<p class='saving'>Searching For Workout<span>.</span><span>.</span><span>.</span></p> <div class='loader'></div> ";
             }
             main.innerHTML = sain;
 
        }, dataType: "json", complete: poll });
-    }, 7000);
+    }, 3500);
 })();
 </script>
+
