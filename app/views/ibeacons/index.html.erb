@@ -165,7 +165,7 @@ function formatAMPM(date) {
               status.innerHTML = "<p class='saving'>Searching for an Exercise<span>.</span><span>.</span><span>.</span></p> <div class='loader'></div> ";
             }
 
-            else if( data[2] == 1 && check == 0 ){
+            else if( data[2] == 1 && check.innerHTML == 0 ){
               check.innerHTML = "1";
               status.innerHTML = "<p class='saving'>Tracking<span>.</span><span>.</span><span>.</span></p> <div class='loader_semi_frozen'></div> ";
 
