@@ -74,11 +74,11 @@ class IbeaconsController < ApplicationController
 	private
 	
 	def beacon_params
-		params.require(:ibeacon).permit(:x_motion, :y_motion, :z_motion, :weight_lb, :isMoving)
+		params.require(:ibeacon).permit(:x_motion, :y_motion, :z_motion, :weight_lb, :is_moving)
 	end 
 
   def spinner_params
-    params.require(:updateSpinner).permit( :isMoving)
+    params.require(:spinners).permit( :is_moving)
   end 
 
 end
