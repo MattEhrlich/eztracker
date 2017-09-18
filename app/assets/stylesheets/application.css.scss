@@ -567,6 +567,11 @@ body {
 .fa fa-graph-bar {
 	color: #ff5d16;
 }
+
+.set-totals, .workout-card {
+	width: 550px;
+	max-width: 550px;
+}
 /* ==== End Simple Calendar ==== */
 
 @media (max-width: 768px) {
