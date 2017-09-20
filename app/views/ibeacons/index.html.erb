@@ -5,8 +5,9 @@
 	<div class="display-holder col-xs-6">
     <div id="status_div" class="card-container col-xs-12">
         <br class='clr' />
-        <span id="status"> <p class='saving'>Searching For Workout<span>.</span><span>.</span><span>.</span></p>
-        <div class='loader'>  </div> </span>
+        
+        <span id="status"> <div class='loader' style='float: left;'>  </div><p class='saving col-xs-9'>Searching For Workout<span>.</span><span>.</span><span>.</span></p>
+         </span>
     </div>
 
 		<div id="base" class="card-container col-xs-12">
@@ -133,7 +134,27 @@ function formatAMPM(date) {
                 return  
             }
             var main = document.getElementById("base")
-            sain = ""
+            
+            
+            
+
+            var exercises = document.getElementById("exercises");
+            var reps = document.getElementById("reps");
+            var weight = document.getElementById("weight");
+            var bottom = document.getElementById(curr.exercise_name)
+            var status = document.getElementById("status");
+            if(parseInt(exercises.innerHTML) != data[1]){
+              exercises.innerHTML = (parseInt(exercises.innerHTML) + 1).toString();
+              reps.innerHTML = (parseInt(reps.innerHTML) + curr.reps_counted).toString();
+              weight.innerHTML = (parseInt(weight.innerHTML) + curr.weight_lb).toString() + " kg";
+              bottom.innerHTML = (parseInt(bottom.innerHTML) + 1).toString();
+              status.innerHTML = "<div class='loader_frozen' style='float: left;'></div><p class='saving col-xs-9'>Analyzing Exercise<span>.</span><span>.</span><span>.</span></p>";
+            }
+
+            else if( status.innerHTML.indexOf("Analyzing Exercise") >= 0){
+              status.innerHTML = " <img src='/assets/GreenCheckMark.png' class='hideMe1' style='float: left;' height=60 width=60 /> <p class='saving col-xs-9'>Workout Complete<span>.</span><span>.</span><span>.</span></p>  ";
+
+              sain = ""
             var date = new Date(curr.created_at)
             sain += "<h2 class='text-center workout-card-explainer' style='font-weight: 700;'>Most Recent Exercise</h2>"
             sain += "<br class='clr' />"
@@ -145,29 +166,20 @@ function formatAMPM(date) {
             sain +="<hr />"
             sain += "<span>"+ new_format(date).toString() +"</span>"
             sain += "</div>"
-            
-
-            var exercises = document.getElementById("exercises");
-            var reps = document.getElementById("reps");
-            var weight = document.getElementById("weight");
-            var bottom = document.getElementById(curr.exercise_name)
-            var status = document.getElementById("status");
-            if(parseInt(exercises.innerHTML) != data[1]){
-              exercises.innerHTML = (parseInt(exercises.innerHTML) + 1).toString();
-              reps.innerHTML = (parseInt(reps.innerHTML) + curr.reps_counted).toString();
-              weight.innerHTML = (parseInt(weight.innerHTML) + curr.weight_lb).toString();
-              bottom.innerHTML = (parseInt(bottom.innerHTML) + 1).toString();
-              
-              status.innerHTML = "<p class='saving'>Completed a Workout<span>.</span><span>.</span><span>.</span></p><div class='loader_frozen'></div>";
-            }
-
-            else if( status.innerHTML.indexOf("Completed a Workout") >= 0){
-              status.innerHTML = "<p class='saving'>Searching For Workout<span>.</span><span>.</span><span>.</span></p> <div class='loader'></div> ";
-            }
             main.innerHTML = sain;
 
+            }
+
+            else if( status.innerHTML.indexOf("Workout Complete") >= 0){
+              status.innerHTML = "<div class='loader' style='float: left;'></div>  <p class='saving col-xs-9'>Searching For Workout<span>.</span><span>.</span><span>.</span></p> ";
+
+            
+            }
+
+            
+
        }, dataType: "json", complete: poll });
-    }, 3500);
+    }, 2000);
 })();
 </script>
 

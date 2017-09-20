@@ -53,8 +53,8 @@
   border-radius: 50%;
   border-top: 16px solid blue;
   border-bottom: 16px solid blue;
-  width: 120px;
-  height: 120px;
+  width: 60px;
+  height: 60px;
   -webkit-animation: spin 3s linear infinite;
   animation: spin 3s linear infinite;
 }
@@ -76,33 +76,22 @@
 }
 
 
-.loader_semi_frozen {
-  border: 16px solid #f3f3f3;
-  border-radius: 50%;
-  border-top: 16px solid yellow;
-  border-bottom: 16px solid yellow;
-  width: 120px;
-  height: 120px;
-  -webkit-animation: spin 3s linear infinite;
-  animation: spin 3s linear infinite;
-}
-
 /* loading screen completed */
 
 .loader_frozen {
   border: 16px solid #f3f3f3;
   border-radius: 50%;
-  border-top: 16px solid green;
-  border-bottom: 16px solid green;
-  width: 120px;
-  height: 120px;
-   -webkit-animation: spin 20s linear infinite;
-  animation: spin 20s linear infinite;
+  border-top: 16px solid yellow;
+  border-bottom: 16px solid yellow;
+  width: 60px;
+  height: 60px;
+   -webkit-animation: spin 1.5s linear infinite;
+  animation: spin 1.5s linear infinite;
 
 }
 
 .saving {
-  font-size: 40px;
+  font-size: 20px;
 }
 
 .saving span {
@@ -130,5 +119,27 @@
   }
   100% {
     opacity: .2;
+  }
+}
+
+
+
+
+.hideMe1 {
+  animation: hideMe 5s 1;
+  animation-fill-mode: forwards;
+  animation-delay: 0.8s;
+}@keyframes hideMe {
+  0% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
   }
 }
