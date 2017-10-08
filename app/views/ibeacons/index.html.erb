@@ -147,11 +147,11 @@ function formatAMPM(date) {
               reps.innerHTML = (parseInt(reps.innerHTML) + curr.reps_counted).toString();
               weight.innerHTML = (parseInt(weight.innerHTML) + curr.weight_lb).toString() + " kg";
               bottom.innerHTML = (parseInt(bottom.innerHTML) + 1).toString();
-              status.innerHTML = "<div class='loader_frozen' style='float: left;'></div><p class='saving col-xs-9'>Analyzing Exercise<span>.</span><span>.</span><span>.</span></p>";
+              status.innerHTML = "<div class='loader_frozen' style='float: left;'></div><p class='saving col-xs-9' style='margin-top: -25px !important;'>Analyzing Exercise<span>.</span><span>.</span><span>.</span></p>";
             }
 
             else if( status.innerHTML.indexOf("Analyzing Exercise") >= 0){
-              status.innerHTML = " <img src='/assets/GreenCheckMark.png' class='hideMe1' style='float: left;' height=40 width=40 /> <p class='saving col-xs-9'>Workout Complete<span>.</span><span>.</span><span>.</span></p>  ";
+              status.innerHTML = " <img src='/assets/GreenCheckMark.png' class='hideMe1' style='float: left;' height=40 width=40 /> <p class='saving col-xs-9' style='margin-top: -25px !important;'>Workout Complete<span>.</span><span>.</span><span>.</span></p>  ";
 
               sain = ""
             var date = new Date(curr.created_at)
@@ -169,7 +169,7 @@ function formatAMPM(date) {
             }
 
             else if( status.innerHTML.indexOf("Workout Complete") >= 0){
-              status.innerHTML = "<div class='loader' style='float: left;'></div>  <p class='saving col-xs-9'>Searching For Workout<span>.</span><span>.</span><span>.</span></p> ";
+              status.innerHTML = "<div class='loader' style='float: left;'></div>  <p class='saving col-xs-9' style='margin-top: -25px !important;'>Searching For Workout<span>.</span><span>.</span><span>.</span></p> ";
 
             
             }
