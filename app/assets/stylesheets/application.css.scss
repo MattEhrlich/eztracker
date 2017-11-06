@@ -606,18 +606,25 @@ body {
 		}
 	
 		.list-overlay {
-	    position: absolute;
-	    top: 60%;
-	    left: 50%;
-	    transform: translate(-50%, -50%);
-	    color: #fbfbfb;
-	    background-color: none !important;
-		 font-family: 'Roboto', sans-serif;
-	    font-weight: bolder;
-	    @media (min-width: 769px) {
-	   	 font-size: 48px;
-	    }
-	}
+			@media (min-width: 769px) {
+		    position: absolute;
+		    top: 60%;
+		    left: 50%;
+		    transform: translate(-50%, -50%);
+		    color: #fbfbfb;
+		    background-color: none !important;
+			 font-family: 'Roboto', sans-serif;
+		    font-weight: bolder;
+		    font-size: 48px;
+		   }
+		   
+	      @media (max-width: 767px) {
+		      clear: both;
+		      color: #243242;
+		      margin: 40px 0px;
+		     
+	      }
+		}
 	
 	#mc-embedded-subscribe {
 		background-color: #31B744 !important;
