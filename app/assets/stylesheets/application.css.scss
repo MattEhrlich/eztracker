@@ -22,7 +22,7 @@
  }
  
  .placeholder-logo {
- 	 width: 200px;
+ 	 width: 240px;
  	 margin-top: 10px;
  }
  
@@ -581,6 +581,125 @@ body {
 	font-family: 'Saira Semi Condensed', sans-serif;
 	font-weight: 400;
 }
+
+
+
+.eztrack-home {
+	.eztrack-img {
+		margin-top: -20px;
+	}
+	
+	
+		.topic-overlay {
+	    position: absolute;
+	    top: 40%;
+	    left: 50%;
+	    transform: translate(-50%, -50%);
+	    color: #fbfbfb;
+		 font-family: 'Roboto', sans-serif;
+	    font-weight: bolder;
+	    @media (min-width: 769px) {
+	   	 font-size: 55px;
+	    }
+	}
+	
+		.list-overlay {
+	    position: absolute;
+	    top: 60%;
+	    left: 50%;
+	    transform: translate(-50%, -50%);
+	    color: #fbfbfb;
+	    background-color: none !important;
+		 font-family: 'Roboto', sans-serif;
+	    font-weight: bolder;
+	    @media (min-width: 769px) {
+	   	 font-size: 55px;
+	    }
+	}
+	
+	#mc-embedded-subscribe {
+		background-color: #31B744 !important;
+	}
+
+}
+
+.about-area {
+	
+	.quadrant1, .quadrant2, .quadrant3, .quadrant4 {
+		height: 300px;
+	}
+	.quadrant1, .quadrant3 {
+		border-right: 1px solid #a7a7a7;
+	 }
+	 
+	 .quadrant3, .quadrant4 {
+		border-top: 1px solid #a7a7a7;
+	 }
+	 
+	 h3 {
+		 margin-top: 50px;
+		 font-family: "Roboto", sans-serif; /* UBUNTU */
+		 text-decoration: underline;
+		 color: #31B744;
+		 
+		 .head-type {
+			 color: #243242;
+		 }
+	 }
+	 
+	 h3.problem {
+		 color: red;
+	 }
+	 
+	 p {
+		margin-top: 40px;
+		font-size: 16px;
+	 }
+
+}
+
+.footer-collect {
+  margin-top: 40px;
+  height: 300px;
+  background: #31B744; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, #31B744, #D6E100); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, #31B744, #D6E100); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, #31B744, #D6E100); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, #31B744, #D6E100); /* Standard syntax */
+  
+ #mc_embed_signup {
+	 margin-top: 90px;
+ }
+ 
+ label#cta {
+	 color: #fff;
+	 font-size: 30px;
+ }
+ 
+ input.email {
+	 height: 60px !important;
+	 border: none !important;
+	 outline: none !important;
+	 background-color: transparent !important;
+	 border-left: 3px solid #fff !important;
+	 border-bottom: 3px solid #fff !important;
+	 border-radius: 5px !important;
+	 font-size: 26px !important;
+	 color: #fff !important;
+ }
+ 
+ #mc-embedded-subscribe {
+	 height: 60px !important;
+	 font-size: 18px !important;
+	 background-color: #31B744 !important;
+	 
+	 &:hover {
+		 background-color: #fff !important;
+		 color: #31B744 !important;
+	 }
+ }
+}
+
 /* ==== End Simple Calendar ==== */
 
 @media (max-width: 768px) {
