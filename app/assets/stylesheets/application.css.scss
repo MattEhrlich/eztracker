@@ -589,19 +589,21 @@ body {
 		margin-top: -40px !important;
 	}
 	
-	
 		.topic-overlay {
-	    position: absolute;
-	    top: 40%;
-	    left: 50%;
-	    transform: translate(-50%, -50%);
-	    color: #fbfbfb;
-		 font-family: 'Roboto', sans-serif;
-	    font-weight: bolder;
-	    @media (min-width: 769px) {
-	   	 font-size: 48px;
+			@media (min-width: 769px) {
+		    position: absolute;
+		    top: 40%;
+		    left: 50%;
+		    transform: translate(-50%, -50%);
+		    color: #fbfbfb;
+			 font-family: 'Roboto', sans-serif;
+		    font-weight: bolder;
+		    font-size: 48px;
 	    }
-	}
+	      @media (max-width: 767px) {
+		      clear: both;
+	      }
+		}
 	
 		.list-overlay {
 	    position: absolute;
@@ -613,7 +615,7 @@ body {
 		 font-family: 'Roboto', sans-serif;
 	    font-weight: bolder;
 	    @media (min-width: 769px) {
-	   	 font-size: 55px;
+	   	 font-size: 48px;
 	    }
 	}
 	
